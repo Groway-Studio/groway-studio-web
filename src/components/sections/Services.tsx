@@ -2,44 +2,41 @@ import { Card } from "@/components/ui/card"
 import { Brain, Cpu, Lightning, Rocket } from "@phosphor-icons/react"
 import { SectionContainer } from "@/components/layout/SectionContainer"
 import { SectionHeader } from "@/components/layout/SectionHeader"
+import { useLanguage } from "@/contexts/LanguageContext"
 import { ReactNode } from "react"
 
-interface Service {
-  icon: ReactNode
-  title: string
-  description: string
-}
-
-const services: Service[] = [
-  {
-    icon: <Brain size={32} weight="duotone" className="text-accent" />,
-    title: "AI Strategy",
-    description: "Crafting bespoke AI roadmaps to align with your business objectives and unlock competitive advantages."
-  },
-  {
-    icon: <Cpu size={32} weight="duotone" className="text-accent" />,
-    title: "Machine Learning",
-    description: "Developing predictive models to unlock data-driven insights and intelligent automation."
-  },
-  {
-    icon: <Lightning size={32} weight="duotone" className="text-accent" />,
-    title: "AI Automation",
-    description: "Streamlining operations with intelligent workflows that scale efficiency across your organization."
-  },
-  {
-    icon: <Rocket size={32} weight="duotone" className="text-accent" />,
-    title: "Custom Solutions",
-    description: "Designing advanced AI systems from the ground up, tailored precisely to your unique challenges."
-  }
-]
-
 export function Services() {
+  const { t } = useLanguage();
+  
+  const services: Array<{ icon: ReactNode; title: string; description: string }> = [
+    {
+      icon: <Brain size={32} weight="duotone" className="text-accent" />,
+      title: t.services.items.strategy.title,
+      description: t.services.items.strategy.description
+    },
+    {
+      icon: <Cpu size={32} weight="duotone" className="text-accent" />,
+      title: t.services.items.ml.title,
+      description: t.services.items.ml.description
+    },
+    {
+      icon: <Lightning size={32} weight="duotone" className="text-accent" />,
+      title: t.services.items.automation.title,
+      description: t.services.items.automation.description
+    },
+    {
+      icon: <Rocket size={32} weight="duotone" className="text-accent" />,
+      title: t.services.items.custom.title,
+      description: t.services.items.custom.description
+    }
+  ];
+
   return (
     <SectionContainer id="services">
       <SectionHeader
-        overline="Our Expertise"
-        title="Transforming Industries with Artificial Intelligence"
-        description="Our expertise spans across the full spectrum of AI, delivering tailored solutions that meet your unique challenges."
+        overline={t.services.overline}
+        title={t.services.title}
+        description={t.services.description}
       />
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">

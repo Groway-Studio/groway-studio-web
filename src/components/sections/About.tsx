@@ -1,53 +1,47 @@
 import { SectionContainer } from "@/components/layout/SectionContainer"
 import { Card } from "@/components/ui/card"
 import { Check, Sparkle, Target, Users } from "@phosphor-icons/react"
-
-const features = [
-  {
-    icon: <Sparkle size={24} weight="duotone" className="text-accent" />,
-    title: "Advanced AI Design",
-    description: "We don't just orchestrate—we design custom AI architectures from the ground up."
-  },
-  {
-    icon: <Target size={24} weight="duotone" className="text-accent" />,
-    title: "Results-Driven",
-    description: "Every solution is engineered to deliver measurable business impact and ROI."
-  },
-  {
-    icon: <Users size={24} weight="duotone" className="text-accent" />,
-    title: "Enterprise-Ready",
-    description: "Scalable, secure, and robust AI systems built for enterprise deployment."
-  }
-]
-
-const differentiators = [
-  "Custom AI architectures, not templated solutions",
-  "Deep technical expertise in ML, NLP, and Computer Vision",
-  "End-to-end ownership from strategy to deployment",
-  "Proven track record of delivering business value"
-]
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function About() {
+  const { t } = useLanguage();
+  
+  const features = [
+    {
+      icon: <Sparkle size={24} weight="duotone" className="text-accent" />,
+      title: t.about.features.design.title,
+      description: t.about.features.design.description
+    },
+    {
+      icon: <Target size={24} weight="duotone" className="text-accent" />,
+      title: t.about.features.results.title,
+      description: t.about.features.results.description
+    },
+    {
+      icon: <Users size={24} weight="duotone" className="text-accent" />,
+      title: t.about.features.enterprise.title,
+      description: t.about.features.enterprise.description
+    }
+  ];
+
   return (
     <SectionContainer id="about" className="bg-secondary/30">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div className="space-y-6">
           <p className="text-xs font-medium tracking-wider uppercase text-accent">
-            Why Groway Studio
+            {t.about.overline}
           </p>
           
           <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground leading-tight tracking-tight">
-            Built for Businesses That Demand More
+            {t.about.title}
           </h2>
           
           <p className="text-lg text-muted-foreground leading-relaxed">
-            We're not in the business of connecting APIs. We engineer sophisticated AI solutions 
-            tailored to your unique challenges—designing advanced systems that orchestrate intelligence 
-            at every layer.
+            {t.about.description}
           </p>
           
           <div className="space-y-3 pt-4">
-            {differentiators.map((item, index) => (
+            {t.about.differentiators.map((item, index) => (
               <div key={index} className="flex items-start gap-3">
                 <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check size={14} weight="bold" className="text-accent" />

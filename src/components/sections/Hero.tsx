@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "@phosphor-icons/react"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function Hero() {
+  const { t } = useLanguage();
+  
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       <div className="absolute inset-0 gradient-glow" />
@@ -14,24 +17,24 @@ export function Hero() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center space-y-8">
         <p className="text-xs font-medium tracking-wider uppercase text-accent animate-fade-in">
-          Groway Studio
+          {t.hero.overline}
         </p>
         
         <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight tracking-tight animate-fade-in-up">
-          Leverage AI for<br />
+          {t.hero.title.line1}<br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent">
-            Unprecedented
+            {t.hero.title.highlight}
           </span><br />
-          Business Growth
+          {t.hero.title.line2}
         </h1>
         
         <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-          We specialize in building cutting-edge AI solutions that drive results.
+          {t.hero.description}
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
           <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-base font-semibold group">
-            Schedule a Demo
+            {t.hero.cta}
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
           </Button>
         </div>

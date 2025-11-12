@@ -1,7 +1,9 @@
 import { TrendUp, GithubLogo, LinkedinLogo, TwitterLogo } from "@phosphor-icons/react"
 import { Separator } from "@/components/ui/separator"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear()
   
   return (
@@ -14,7 +16,7 @@ export function Footer() {
               <span className="text-xl font-bold text-foreground">Groway Studio</span>
             </div>
             <p className="text-muted-foreground">
-              Building cutting-edge AI solutions that drive unprecedented business growth.
+              {t.footer.description}
             </p>
           </div>
           
@@ -23,22 +25,22 @@ export function Footer() {
               Company
             </h3>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-muted-foreground hover:text-accent transition-colors">About</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">Services</a></li>
+              <li><a href="#about" className="text-muted-foreground hover:text-accent transition-colors">{t.nav.about}</a></li>
+              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">{t.nav.services}</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Case Studies</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Contact</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">{t.nav.contact}</a></li>
             </ul>
           </div>
           
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
-              Services
+              {t.nav.services}
             </h3>
             <ul className="space-y-2">
-              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">AI Strategy</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">Machine Learning</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">AI Automation</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">Custom Solutions</a></li>
+              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">{t.services.items.strategy.title}</a></li>
+              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">{t.services.items.ml.title}</a></li>
+              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">{t.services.items.automation.title}</a></li>
+              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">{t.services.items.custom.title}</a></li>
             </ul>
           </div>
           
@@ -63,7 +65,7 @@ export function Footer() {
         <Separator className="mb-8" />
         
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>© {currentYear} Groway Studio. All rights reserved.</p>
+          <p>© {currentYear} Groway Studio. {t.footer.copyright}</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-accent transition-colors">Terms of Service</a>
