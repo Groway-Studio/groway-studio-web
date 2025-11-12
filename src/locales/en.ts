@@ -14,7 +14,7 @@ export const en: Translations = {
       line2: "And it's ready to transform your business.",
     },
     description: 'We specialize in building cutting-edge AI solutions that drive results.',
-    cta: 'Schedule a Demo',
+    cta: 'Contact Us',
   },
   services: {
     overline: 'Our Expertise',
@@ -68,7 +68,7 @@ export const en: Translations = {
     overline: 'Get Started',
     title: 'Ready to Transform Your Business with AI?',
     description: "Let's discuss how custom AI solutions can drive unprecedented growth for your organization.",
-    button: 'Schedule a Demo',
+    button: 'Contact Us',
   },
   footer: {
     description: 'Empowering businesses through cutting-edge AI solutions.',

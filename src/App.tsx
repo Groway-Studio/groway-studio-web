@@ -1,22 +1,19 @@
-import { Navigation } from "@/components/layout/Navigation"
-import { Footer } from "@/components/layout/Footer"
-import { Hero } from "@/components/sections/Hero"
-import { Services } from "@/components/sections/Services"
-import { About } from "@/components/sections/About"
-import { CTA } from "@/components/sections/CTA"
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HomePage } from '@/pages/HomePage'
+import { OurServicesPage } from '@/pages/OurServicesPage'
+import { AboutUsPage } from '@/pages/AboutUsPage'
+import { ContactPage } from '@/pages/ContactPage'
 
 function App() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <CTA />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter basename="/groway-studio-web">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/servicios" element={<OurServicesPage />} />
+        <Route path="/nosotros" element={<AboutUsPage />} />
+        <Route path="/contacto" element={<ContactPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card"
 import { SectionContainer } from "@/components/layout/SectionContainer"
 import { ArrowRight, CalendarCheck } from "@phosphor-icons/react"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { Link } from "react-router-dom"
 
 export function CTA() {
   const { t } = useLanguage();
@@ -23,11 +24,13 @@ export function CTA() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-base font-semibold group">
-              <CalendarCheck className="mr-2" size={20} weight="bold" />
-              {t.cta.button}
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
-            </Button>
+            <Link to="/contacto">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-base font-semibold group">
+                <CalendarCheck className="mr-2" size={20} weight="bold" />
+                {t.cta.button}
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
+              </Button>
+            </Link>
           </div>
         </div>
       </Card>

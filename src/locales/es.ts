@@ -14,7 +14,7 @@ export const es: Translations = {
       line2: 'Y está lista para transformar tu negocio.',
     },
     description: 'Diseñamos soluciones de inteligencia artificial innovadoras que transforman tu empresa.',
-    cta: 'Agenda una Demo',
+    cta: 'Contáctanos',
   },
   services: {
     overline: 'Nuestra Experiencia',
@@ -68,7 +68,7 @@ export const es: Translations = {
     overline: 'Comencemos',
     title: '¿Listo para Transformar tu Empresa con IA?',
     description: 'Hablemos sobre cómo nuestras soluciones de inteligencia artificial pueden impulsar el crecimiento de tu organización.',
-    button: 'Agenda una Demo',
+    button: 'Contáctanos',
   },
   footer: {
     description: 'Impulsamos empresas con soluciones de inteligencia artificial innovadoras.',

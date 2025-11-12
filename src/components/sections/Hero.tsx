@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "@phosphor-icons/react"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { Link } from "react-router-dom"
 
 export function Hero() {
   const { t } = useLanguage();
@@ -33,10 +34,12 @@ export function Hero() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-          <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-base font-semibold group">
-            {t.hero.cta}
-            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
-          </Button>
+          <Link to="/contacto">
+            <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-base font-semibold group">
+              {t.hero.cta}
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" weight="bold" />
+            </Button>
+          </Link>
         </div>
       </div>
       
