@@ -6,8 +6,8 @@ import { resolve } from 'path'
 const projectRoot = process.env.PROJECT_ROOT || import.meta.dirname
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: '/groway-studio-web/',
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/groway-studio-web/' : '/',
   plugins: [
     react(),
     tailwindcss(),
@@ -22,4 +22,4 @@ export default defineConfig({
     sourcemap: false,
     minify: 'esbuild',
   }
-});
+}));
