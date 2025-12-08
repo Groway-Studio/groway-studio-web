@@ -6,7 +6,6 @@ import { ErrorFallback } from './ErrorFallback.tsx'
 import { LanguageProvider } from './contexts/LanguageContext.tsx'
 
 import "./index.css"
-import "./main.css"
 
 createRoot(document.getElementById('root')!).render(
   <ErrorBoundary FallbackComponent={ErrorFallback}>

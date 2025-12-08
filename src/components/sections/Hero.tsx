@@ -8,6 +8,13 @@ export function Hero() {
   
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Efecto de luz amaneciendo en el horizonte superior */}
+      <div className="absolute top-0 inset-x-0 h-[60vh] pointer-events-none animate-dawn">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+        <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent shadow-[0_0_80px_40px_rgba(99,102,241,0.3)]" />
+        <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-accent/20 via-primary/10 to-transparent opacity-60 animate-pulse" style={{ animationDuration: '4s' }} />
+      </div>
+      
       <div className="absolute inset-0 gradient-glow" />
       
       <div className="absolute inset-0 opacity-40">
