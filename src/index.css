@@ -75,7 +75,7 @@
 */
 :root {
   --bg:          oklch(0.13 0.015 40);
-  --bg-inset:    oklch(0.08 0.010 40);
+  --bg-inset:    oklch(0.105 0.012 40); /* subtle step below --bg — deep pool, not a black band */
   --surface:     oklch(0.17 0.020 45);
   --surface-2:   oklch(0.21 0.025 45);
   --hairline:    oklch(1 0 0 / 0.08);
@@ -188,12 +188,25 @@
   border: 1px solid var(--hairline);
 }
 
+/* Inset section that melts into the base canvas at both edges — no hard seams */
+.bg-inset-pool {
+  background: linear-gradient(
+    to bottom,
+    var(--bg),
+    var(--bg-inset) 22%,
+    var(--bg-inset) 78%,
+    var(--bg)
+  );
+}
+
 .gradient-glow {
   background: radial-gradient(
-    ellipse 60% 40% at 50% 0%,
+    ellipse 60% 50% at 50% 12%,
     oklch(0.70 0.19 45 / 0.14),
     transparent 70%
   );
+  /* fade the glow in — an ellipse pinned to the top edge reads as a hard seam */
+  mask-image: linear-gradient(to bottom, transparent, black 32%);
 }
 
 .animate-gradient {

@@ -2,13 +2,13 @@ import { Check, Lightning } from '@phosphor-icons/react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { Section, Eyebrow } from '@/components/layout/Section'
 import { Reveal } from '@/components/ui/Reveal'
-import { scrollToId } from '@/lib/scroll'
+import { openChat } from '@/components/chat/ChatWidget'
 
 export function Startups() {
   const { t } = useLanguage()
 
   return (
-    <Section id="startups" className="bg-bg-inset">
+    <Section id="startups" className="bg-inset-pool">
       <div className="gradient-glow pointer-events-none absolute inset-x-0 top-0 h-1/2" />
       <div className="relative grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         {/* Pitch */}
@@ -31,7 +31,7 @@ export function Startups() {
           </Reveal>
           <Reveal delay={0.15}>
             <button
-              onClick={() => scrollToId('contact')}
+              onClick={() => openChat(t.chat.prefillMvp)}
               className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-accent-9 px-7 py-4 text-base font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 hover:glow-orange active:scale-[0.98]"
             >
               {t.startups.cta}

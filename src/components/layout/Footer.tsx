@@ -1,3 +1,4 @@
+import { LogoMark } from '@/components/layout/Logo'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { scrollToId } from '@/lib/scroll'
 
@@ -17,10 +18,10 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="grid h-7 w-7 place-items-center rounded-md bg-accent-9 font-bold text-[oklch(0.14_0.02_40)]">
-                G
+              <LogoMark className="h-7 w-auto text-accent-9" />
+              <span className="text-lg font-semibold tracking-tight text-fg">
+                groway<span className="text-fg-muted">.studio</span>
               </span>
-              <span className="text-lg font-semibold tracking-tight text-fg">Groway Studio</span>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-fg-muted">{t.footer.tagline}</p>
           </div>

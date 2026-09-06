@@ -91,19 +91,22 @@ export interface Translations {
     eyebrow: string
     heading: string
     subhead: string
-    fields: {
-      name: string
-      email: string
-      company: string
-      depth: string
-      depthOptions: string[]
-      problem: string
-    }
-    submit: string
-    sending: string
     privacy: string
-    successToast: string
-    errorToast: string
+    emailNote: string
+  }
+  chat: {
+    launcher: string
+    title: string
+    prefillMvp: string
+    greeting: string
+    askName: string
+    askEmail: string
+    invalidEmail: string
+    done: string
+    error: string
+    placeholder: string
+    send: string
+    close: string
   }
   footer: {
     tagline: string

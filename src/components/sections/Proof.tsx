@@ -8,7 +8,10 @@ function isPlaceholder(metric: string) {
   return !metric || metric.includes('[')
 }
 
-function CaseCard({ c, template }: { c: ProofCase; template: boolean }) {
+/* Template-chip label lives here (not in locales) because it's scaffolding, not final copy. */
+const pendingLabel = { es: 'métrica pendiente', en: 'metric pending' }
+
+function CaseCard({ c, template, chip }: { c: ProofCase; template: boolean; chip: string }) {
   return (
     <div
       className={
@@ -19,7 +22,7 @@ function CaseCard({ c, template }: { c: ProofCase; template: boolean }) {
     >
       {template ? (
         <span className="inline-flex w-fit items-center rounded-md bg-surface-2 px-2 py-0.5 font-mono text-[0.65rem] uppercase tracking-widest text-fg-subtle">
-          métrica pendiente
+          {chip}
         </span>
       ) : (
         <span className="select-none text-[clamp(2rem,4vw,3rem)] font-bold leading-none text-gradient">
@@ -34,7 +37,7 @@ function CaseCard({ c, template }: { c: ProofCase; template: boolean }) {
 }
 
 export function Proof() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const realCases = t.proof.cases.filter((c) => !isPlaceholder(c.metric))
   const showTemplate = realCases.length === 0
   const cases = showTemplate ? t.proof.cases : realCases
@@ -55,7 +58,7 @@ export function Proof() {
       <div className="mt-12 grid gap-5 md:grid-cols-3">
         {cases.map((c, i) => (
           <Reveal as="div" key={i} delay={i * 0.08}>
-            <CaseCard c={c} template={showTemplate} />
+            <CaseCard c={c} template={showTemplate} chip={pendingLabel[language]} />
           </Reveal>
         ))}
       </div>
