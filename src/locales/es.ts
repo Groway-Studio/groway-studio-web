@@ -1,77 +1,178 @@
-import type { Translations } from './types';
+import type { Translations } from './types'
 
 export const es: Translations = {
   nav: {
-    services: 'Servicios',
-    about: 'Nosotros',
-    contact: 'Contacto',
+    approach: 'Enfoque',
+    depth: 'Niveles',
+    method: 'Método',
+    proof: 'Pruebas',
+    startups: 'Startups',
+    cta: 'Tráenos tu problema',
   },
   hero: {
-    overline: 'Groway Studio',
-    title: {
-      line1: 'La IA no es el futuro.',
-      highlight: 'Es tu ventaja ahora.',
-      line2: 'Y está lista para transformar tu negocio.',
-    },
-    description: 'Diseñamos soluciones de inteligencia artificial innovadoras que transforman tu empresa.',
-    cta: 'Contáctanos',
+    overline: 'AGENCIA DE IA · INGENIERÍA + CIENCIA',
+    h1: 'Ingeniería y ciencia de IA que llega a producción.',
+    h1Highlight: 'llega a producción',
+    subhead:
+      'Integramos, construimos a medida, entrenamos modelos e investigamos lo que aún no existe. No empezamos por la tecnología: determinamos contigo cuánta profundidad de IA necesita tu problema.',
+    ctaPrimary: 'Tráenos el problema difícil',
+    ctaSecondary: 'Habla con un ingeniero',
+    scroll: 'Desliza',
   },
-  services: {
-    overline: 'Nuestra Experiencia',
-    title: 'Transformamos Industrias con Inteligencia Artificial',
-    description: 'Ofrecemos soluciones de IA a medida que se adaptan a los desafíos específicos de tu empresa.',
-    items: {
-      strategy: {
-        title: 'Estrategia de IA',
-        description: 'Diseñamos hojas de ruta personalizadas que alinean la inteligencia artificial con tus objetivos de negocio.',
-      },
-      ml: {
-        title: 'Machine Learning',
-        description: 'Desarrollamos modelos predictivos que transforman datos en insights accionables y automatización inteligente.',
-      },
-      automation: {
-        title: 'Automatización Inteligente',
-        description: 'Optimizamos procesos con flujos de trabajo inteligentes que escalan la eficiencia de tu organización.',
-      },
-      custom: {
-        title: 'Soluciones a Medida',
-        description: 'Creamos sistemas de IA avanzados desde cero, diseñados específicamente para tus necesidades.',
-      },
-    },
+  approach: {
+    eyebrow: 'EL ENFOQUE',
+    thesis: 'Empezamos por el problema. La tecnología se adapta.',
+    body: 'La mayoría de proyectos de IA mueren como pilotos: demos que impresionan y nunca entran en producción. Nosotros hacemos el trabajo al revés. Primero entendemos tu problema y decidimos contigo cuánta profundidad de IA necesita —de una integración a una investigación que nadie ha resuelto todavía— y luego lo construimos hasta que funciona en real.',
   },
-  about: {
-    overline: 'Por Qué Groway Studio',
-    title: 'Creamos Soluciones que Marcan la Diferencia',
-    description: 'No nos limitamos a integrar APIs. Desarrollamos sistemas de IA sofisticados que resuelven problemas reales y generan valor medible para tu negocio.',
-    features: {
-      design: {
-        title: 'Arquitectura Avanzada',
-        description: 'Diseñamos arquitecturas de IA personalizadas desde los cimientos, no plantillas genéricas.',
-      },
-      results: {
-        title: 'Enfoque en Resultados',
-        description: 'Cada solución está diseñada para generar impacto real y retorno de inversión medible.',
-      },
-      enterprise: {
-        title: 'Grado Empresarial',
-        description: 'Sistemas escalables, seguros y robustos preparados para ambientes empresariales exigentes.',
-      },
+  depth: {
+    eyebrow: 'CUATRO NIVELES DE PROFUNDIDAD',
+    heading: 'Elegimos la profundidad justa. Ni de menos, ni de más.',
+    axis: 'Integrar → Construir → Adaptar → Investigar',
+    labels: {
+      ideal: 'Ideal cuando',
+      deliverable: 'Entregable',
+      time: 'Tiempo',
+      start: 'Cómo empieza',
+      success: 'Cómo medimos éxito',
     },
-    differentiators: [
-      'Arquitecturas de IA personalizadas, no soluciones prefabricadas',
-      'Expertise técnico profundo en ML, NLP y Computer Vision',
-      'Acompañamiento integral desde la estrategia hasta la implementación',
-      'Trayectoria comprobada generando valor empresarial real',
+    levels: [
+      {
+        id: 'orchestrate',
+        num: '01',
+        name: 'Orchestrate',
+        tagline: 'Pon la IA a trabajar con lo que ya tienes.',
+        desc: 'Conectamos modelos existentes a tus datos, herramientas y flujos. Agentes y copilots que operan dentro de tu stack, no al lado.',
+        ideal: 'Ideal si tienes herramientas y datos, pero no resultados.',
+        tags: ['Agentes', 'Copilots', 'RAG', 'Automatizaciones', 'Integraciones', 'AI Workflows'],
+        deliverable: 'Un agente o flujo en producción, integrado a tus sistemas.',
+        time: '2–4 semanas',
+        start: 'Auditoría de datos y herramientas + un caso de uso priorizado.',
+        success: 'Evals sobre tus datos reales + reducción medida de trabajo manual.',
+      },
+      {
+        id: 'engineer',
+        num: '02',
+        name: 'Engineer',
+        tagline: 'El producto que necesitas no existe. Lo diseñamos y lo construimos.',
+        desc: 'Sistemas de IA a medida cuando ninguna herramienta del mercado resuelve tu caso: aplicaciones, arquitecturas multi-agente y motores de decisión propios.',
+        ideal: 'Ideal si tu problema es tuyo y no hay un producto que lo cubra.',
+        tags: ['AI Applications', 'Multi-Agent', 'Decision Systems', 'Recommendation Engines', 'Computer Vision', 'Predictive Models'],
+        deliverable: 'Un sistema propietario en producción, con su arquitectura documentada.',
+        time: '4–12 semanas',
+        start: 'Diseño de arquitectura + prototipo funcional del núcleo.',
+        success: 'Suite de evals propia + métricas de producto acordadas contigo.',
+      },
+      {
+        id: 'model',
+        num: '03',
+        name: 'Model',
+        tagline: 'Tu dominio sabe cosas que ningún modelo genérico sabe. Se las enseñamos.',
+        desc: 'Entrenamos, afinamos y optimizamos modelos sobre tu conocimiento propietario, hasta que rinden donde los genéricos fallan.',
+        ideal: 'Ideal si un modelo genérico se queda corto en tu vocabulario o tus datos.',
+        tags: ['Fine-tuning', 'Model Training', 'Embeddings', 'Distillation', 'Evaluation', 'Synthetic Data', 'Model Optimization'],
+        deliverable: 'Un modelo afinado y desplegable, con su informe de evaluación.',
+        time: '4–10 semanas',
+        start: 'Evaluación del modelo base sobre tus datos (baseline con cifras).',
+        success: 'Mejora medida frente al baseline en evals de tu dominio.',
+      },
+      {
+        id: 'research',
+        num: '04',
+        name: 'Research',
+        tagline: '¿Y si la respuesta todavía no existe?',
+        desc: 'Investigación aplicada cuando el estado del arte no basta: arquitecturas nuevas, IA multimodal y aprendizaje por refuerzo dirigidos a un objetivo tuyo.',
+        ideal: 'Ideal si compites en algo que aún no está resuelto en la literatura.',
+        tags: ['Applied Research', 'Novel Architectures', 'Multimodal AI', 'RL', 'Computer Vision', 'NLP', 'Model Optimization'],
+        deliverable: 'Un resultado reproducible: prototipo, benchmark y reporte técnico fechado.',
+        time: 'Por fases, desde 6 semanas',
+        start: 'Definición del problema de investigación + revisión del estado del arte.',
+        success: 'Un benchmark que supera la línea base publicada, documentado y reproducible.',
+      },
     ],
   },
-  cta: {
-    overline: 'Comencemos',
-    title: '¿Listo para Transformar tu Empresa con IA?',
-    description: 'Hablemos sobre cómo nuestras soluciones de inteligencia artificial pueden impulsar el crecimiento de tu organización.',
-    button: 'Contáctanos',
+  method: {
+    eyebrow: 'NUESTRO MÉTODO',
+    name: 'GROWY DEPTH™',
+    heading: 'Cuatro pasos, sea cual sea la profundidad.',
+    steps: [
+      { title: 'Diagnose', body: 'Entendemos el problema y decidimos juntos qué nivel de profundidad necesita.' },
+      { title: 'Depth', body: 'Elegimos el nivel —integrar, construir, entrenar o investigar— y su alcance.' },
+      { title: 'Deploy', body: 'Lo llevamos a producción dentro de tus sistemas. Sin pilotos huérfanos.' },
+      { title: 'Prove', body: 'Lo medimos con evals sobre tus datos reales. Si no se puede medir, no se entrega.' },
+    ],
+  },
+  proof: {
+    eyebrow: 'PRUEBAS, NO PROMESAS',
+    heading: 'Producción y cifras. No demos.',
+    fallback: 'Casos de estudio disponibles bajo petición.',
+    teamEyebrow: 'QUIÉN LO CONSTRUYE',
+    teamBody:
+      'Ingenieros y científicos de datos que llevan sistemas de IA a producción. Trabajamos forward-deployed: dentro de tu equipo, no por encima.',
+    // Métricas marcadas como plantilla: se muestran con tratamiento de placeholder
+    // hasta que el cliente confirme cifras reales. Nunca inventar datos de clientes.
+    cases: [
+      {
+        metric: '[CLIENTE]',
+        title: 'Resultado de negocio en una frase.',
+        body: 'RAG sobre tu base de conocimiento con evals de fidelidad; nivel Orchestrate.',
+        sector: 'Sector / cliente',
+      },
+      {
+        metric: '[CLIENTE]',
+        title: 'Resultado de negocio en una frase.',
+        body: 'Sistema multi-agente a medida en producción; nivel Engineer.',
+        sector: 'Sector / cliente',
+      },
+      {
+        metric: '[CLIENTE]',
+        title: 'Resultado de negocio en una frase.',
+        body: 'Modelo afinado sobre datos de dominio + evals propias; nivel Model.',
+        sector: 'Sector / cliente',
+      },
+    ],
+  },
+  startups: {
+    eyebrow: 'CARRIL DE VELOCIDAD',
+    heading: 'Para startups con financiación que necesitan un MVP de IA que funcione.',
+    body: 'Un carril acelerado, no una versión barata. Mismo equipo, mismo rigor, alcance recortado para ir de idea a producto en semanas.',
+    packageTitle: 'Paquete MVP',
+    packageTime: '2–4 semanas',
+    includes: [
+      'Un caso de IA en producción (nivel Orchestrate o Engineer).',
+      'Evals desde el día uno, para que puedas enseñárselo a inversores.',
+      'Arquitectura tuya, sin lock-in.',
+    ],
+    cta: 'Habla con un ingeniero',
+  },
+  contact: {
+    eyebrow: 'HABLEMOS',
+    heading: 'Tráenos el problema difícil.',
+    subhead: 'Sin demos de venta. Empiezas hablando con quien va a construirlo.',
+    fields: {
+      name: 'Nombre',
+      email: 'Email de trabajo',
+      company: 'Empresa',
+      depth: '¿Qué profundidad crees que necesitas?',
+      depthOptions: ['No lo sé', 'Orchestrate', 'Engineer', 'Model', 'Research'],
+      problem: 'Cuéntanos el problema',
+    },
+    submit: 'Enviar el problema',
+    sending: 'Enviando…',
+    privacy: 'Respondemos en menos de 48 h. Solo usamos tus datos para responderte.',
+    successToast: 'Recibido. Te respondemos en menos de 48 h.',
+    errorToast: 'Algo falló al enviar. Escríbenos directamente por email.',
   },
   footer: {
-    description: 'Impulsamos empresas con soluciones de inteligencia artificial innovadoras.',
-    copyright: 'Todos los derechos reservados.',
+    tagline: 'Ingeniería + ciencia de IA. De la integración a lo que nadie ha resuelto todavía.',
+    servicesTitle: 'Servicios',
+    companyTitle: 'Empresa',
+    contactTitle: 'Contacto',
+    contactEmail: 'hola@groway.studio',
+    copyright: '© 2026 Groway Studio. Todos los derechos reservados.',
   },
-};
+  meta: {
+    title: 'Groway Studio | Agencia de Inteligencia Artificial a Medida',
+    description:
+      'Ingeniería y ciencia de IA que llega a producción. Integramos, construimos a medida, entrenamos modelos e investigamos IA aplicada. Sistemas multi-agente, modelos propios y RAG.',
+  },
+}

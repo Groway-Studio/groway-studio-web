@@ -1,60 +1,123 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
-
-@config '../tailwind.config.js';
 
 @layer base {
   * {
     @apply border-border;
   }
-  
+
   html, body {
     margin: 0;
     padding: 0;
   }
-  
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background-color: var(--color-background);
     color: var(--color-foreground);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
+
+  ::selection {
+    background: oklch(0.70 0.19 45 / 0.3);
+    color: oklch(0.99 0.01 60);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-9);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Tailwind v4 preflight leaves <button> with cursor:default — restore affordance */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
+  /* Custom chevron for selects — appearance-none strips the native one */
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%23a8a29e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+  }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--bg-inset); }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.30 0.03 45);
+    border-radius: 9999px;
+    border: 2px solid var(--bg-inset);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: oklch(0.40 0.05 45); }
 }
 
+/*
+  Warm dark theme. Black is the canvas, orange is scarce ink (<10% surface).
+  Hue ~40-55 (warm). Replaces the previous blue (hue 250) system.
+*/
 :root {
-  --background: oklch(0.12 0.03 250);
-  --foreground: oklch(0.98 0 0);
-  
-  --card: oklch(0.18 0.04 250);
-  --card-foreground: oklch(0.98 0 0);
-  
-  --popover: oklch(0.18 0.04 250);
-  --popover-foreground: oklch(0.98 0 0);
-  
-  --primary: oklch(0.55 0.20 250);
-  --primary-foreground: oklch(0.98 0 0);
-  
-  --secondary: oklch(0.25 0.04 250);
-  --secondary-foreground: oklch(0.98 0 0);
-  
-  --muted: oklch(0.25 0.04 250);
-  --muted-foreground: oklch(0.65 0.02 250);
-  
-  --accent: oklch(0.60 0.24 250);
-  --accent-foreground: oklch(0.98 0 0);
-  
-  --destructive: oklch(0.577 0.245 27.325);
+  --bg:          oklch(0.13 0.015 40);
+  --bg-inset:    oklch(0.08 0.010 40);
+  --surface:     oklch(0.17 0.020 45);
+  --surface-2:   oklch(0.21 0.025 45);
+  --hairline:    oklch(1 0 0 / 0.08);
+
+  --accent-9:    oklch(0.70 0.19 45);   /* vivid orange — fills / CTA */
+  --accent-10:   oklch(0.66 0.20 42);   /* CTA hover */
+  --accent-11:   oklch(0.80 0.14 55);   /* accent TEXT on black (AA) */
+  --crest:       oklch(0.86 0.15 75);   /* amber/yellow — gradient crest */
+
+  --fg:          oklch(0.97 0.01 60);   /* warm white, never pure #fff */
+  --fg-muted:    oklch(0.72 0.02 50);
+  --fg-subtle:   oklch(0.55 0.02 50);
+
+  /* shadcn/radix token bridge (so existing UI components stay themed) */
+  --background: var(--bg);
+  --foreground: var(--fg);
+
+  --card: var(--surface);
+  --card-foreground: var(--fg);
+
+  --popover: var(--surface);
+  --popover-foreground: var(--fg);
+
+  --primary: var(--accent-9);
+  --primary-foreground: oklch(0.14 0.02 40);
+
+  --secondary: var(--surface-2);
+  --secondary-foreground: var(--fg);
+
+  --muted: var(--surface-2);
+  --muted-foreground: var(--fg-muted);
+
+  --accent: var(--accent-9);
+  --accent-foreground: oklch(0.14 0.02 40);
+
+  --destructive: oklch(0.58 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
-  
-  --border: oklch(0.25 0.04 250);
-  --input: oklch(0.25 0.04 250);
-  --ring: oklch(0.55 0.20 250);
-  
+
+  --border: oklch(0.30 0.030 45 / 0.6);
+  --input: oklch(0.30 0.030 45 / 0.5);
+  --ring: var(--accent-9);
+
   --radius: 0.75rem;
 }
 
@@ -78,7 +141,22 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  
+
+  /* semantic extras available as utilities (bg-surface, text-fg-muted, ...) */
+  --color-bg: var(--bg);
+  --color-bg-inset: var(--bg-inset);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-accent-9: var(--accent-9);
+  --color-accent-10: var(--accent-10);
+  --color-accent-11: var(--accent-11);
+  --color-crest: var(--crest);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
   --radius-sm: calc(var(--radius) * 0.5);
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) * 1.5);
@@ -87,11 +165,34 @@
   --radius-full: 9999px;
 }
 
+/* ---------- Signature utilities ---------- */
+
+.text-gradient {
+  background-image: linear-gradient(135deg, oklch(0.72 0.19 45), oklch(0.86 0.15 70));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* @utility (not a plain class) so hover:/group-hover: variants compile in v4 */
+@utility glow-orange {
+  box-shadow: 0 0 40px -8px oklch(0.70 0.19 45 / 0.5);
+}
+
+/* Fainter permanent glow for small accents (badges, active stepper, logo mark) */
+@utility glow-orange-soft {
+  box-shadow: 0 0 20px -4px oklch(0.70 0.19 45 / 0.4);
+}
+
+.surface-hairline {
+  border: 1px solid var(--hairline);
+}
+
 .gradient-glow {
   background: radial-gradient(
-    ellipse 80% 50% at 50% -20%,
-    oklch(0.35 0.15 250 / 0.3),
-    transparent
+    ellipse 60% 40% at 50% 0%,
+    oklch(0.70 0.19 45 / 0.14),
+    transparent 70%
   );
 }
 
@@ -101,25 +202,44 @@
 }
 
 @keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 @keyframes dawn-rise {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .animate-dawn {
   animation: dawn-rise 2s ease-out forwards;
+}
+
+/* Keyword ticker — slow drift + occasional ignition, hero-cloud family */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes kw-ignite {
+  0%, 86%, 100% {
+    color: var(--fg-subtle);
+    text-shadow: none;
+  }
+  90%, 95% {
+    color: oklch(0.82 0.15 55);
+    text-shadow: 0 0 16px oklch(0.70 0.19 45 / 0.55);
+  }
+}
+
+/* Hero scroll hint — dot drips down and fades, calmer than a bounce */
+@keyframes scroll-hint {
+  0%       { transform: translateY(0); opacity: 0; }
+  25%, 60% { opacity: 1; }
+  100%     { transform: translateY(0.625rem); opacity: 0; }
 }

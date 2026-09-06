@@ -26,6 +26,11 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     localStorage.setItem('language', language);
+    document.documentElement.lang = language;
+    const active = translations[language];
+    document.title = active.meta.title;
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute('content', active.meta.description);
   }, [language]);
 
   const setLanguage = (lang: Language) => {
@@ -45,6 +50,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components -- context + hook belong together
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (context === undefined) {

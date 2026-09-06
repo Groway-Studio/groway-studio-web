@@ -1,13 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Groway Studio - Custom AI Solutions for Business Growth</title>
+    <meta name="theme-color" content="#0a0705" />
+
+    <title>Groway Studio | Agencia de Inteligencia Artificial a Medida</title>
+    <meta name="description"
+        content="Ingeniería y ciencia de IA que llega a producción. Integramos, construimos a medida, entrenamos modelos e investigamos IA aplicada. Sistemas multi-agente, modelos propios y RAG." />
+
+    <!-- Language is toggled client-side on this static deploy; a dedicated
+         /en/ route (with hreflang pairs) is the natural next step if we add
+         prerendering. Until then we only declare the canonical URL. -->
+    <link rel="canonical" href="https://groway.studio/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Groway Studio" />
+    <meta property="og:url" content="https://groway.studio/" />
+    <meta property="og:title" content="Groway Studio | Agencia de Inteligencia Artificial a Medida" />
+    <meta property="og:description"
+        content="Ingeniería y ciencia de IA que llega a producción. De la integración a la investigación aplicada." />
+    <meta property="og:image" content="https://groway.studio/og-image.png" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Groway Studio | Agencia de Inteligencia Artificial a Medida" />
+    <meta name="twitter:description"
+        content="Ingeniería y ciencia de IA que llega a producción. De la integración a la investigación aplicada." />
+    <meta name="twitter:image" content="https://groway.studio/og-image.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://groway.studio/#organization",
+          "name": "Groway Studio",
+          "url": "https://groway.studio/",
+          "description": "Agencia de IA con ingeniería y ciencia: integramos, construimos, entrenamos e investigamos inteligencia artificial."
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://groway.studio/#service",
+          "name": "Groway Studio — AI Agency",
+          "url": "https://groway.studio/",
+          "description": "Ingeniería y ciencia de IA. Del problema a la solución en cuatro niveles de profundidad: Orchestrate, Engineer, Model y Research.",
+          "parentOrganization": { "@id": "https://groway.studio/#organization" },
+          "areaServed": "Worldwide",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "AI Services",
+            "itemListElement": [
+              { "@type": "Service", "serviceType": "AI Integration", "name": "Orchestrate", "description": "Integrar modelos y capacidades de IA con sistemas, datos y procesos existentes: agentes, copilots, RAG, automatizaciones e integraciones." },
+              { "@type": "Service", "serviceType": "Custom AI Engineering", "name": "Engineer", "description": "Diseño y desarrollo de sistemas de IA a medida: aplicaciones, sistemas multi-agente, decision systems, recommendation engines y computer vision." },
+              { "@type": "Service", "serviceType": "AI Model Development", "name": "Model", "description": "Adaptación y optimización de modelos: fine-tuning, model training, embeddings, distillation, evaluation y synthetic data." },
+              { "@type": "Service", "serviceType": "Applied AI Research", "name": "Research", "description": "Investigación aplicada de IA: nuevas arquitecturas, IA multimodal, reinforcement learning, computer vision y NLP." },
+              { "@type": "Service", "serviceType": "AI MVP Development", "name": "Startup AI MVP", "description": "Desarrollo de productos AI-native para startups. De idea a producto a mercado con un MVP en 2 a 4 semanas." }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://groway.studio/#website",
+          "url": "https://groway.studio/",
+          "name": "Groway Studio",
+          "publisher": { "@id": "https://groway.studio/#organization" },
+          "inLanguage": ["es", "en"]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://groway.studio/#faq",
+          "mainEntity": [
+            { "@type": "Question", "name": "¿Qué nivel de IA necesito?", "acceptedAnswer": { "@type": "Answer", "text": "No necesitas saberlo. Empezamos por tu problema, tus datos y tus restricciones, y determinamos contigo qué nivel de profundidad realmente necesitas: desde una integración de días hasta investigación aplicada." } },
+            { "@type": "Question", "name": "¿Entrenan modelos propios?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Entrenamos, afinamos y optimizamos modelos sobre tu conocimiento propietario cuando un modelo genérico se queda corto, con un informe de evaluación frente al baseline." } },
+            { "@type": "Question", "name": "¿Cuánto tarda un MVP con IA?", "acceptedAnswer": { "@type": "Answer", "text": "Entre 2 y 4 semanas. Un carril acelerado con el mismo equipo y rigor, con evals desde el día uno y arquitectura que es tuya, sin lock-in." } },
+            { "@type": "Question", "name": "¿En qué se diferencia Groway de otras agencias de IA?", "acceptedAnswer": { "@type": "Answer", "text": "No solo conectamos herramientas. Tenemos ingeniería y ciencia para construir sistemas a medida, entrenar modelos e investigar lo que aún no existe. Un solo socio que crece contigo en cuatro niveles de profundidad." } }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
