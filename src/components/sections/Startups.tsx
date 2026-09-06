@@ -42,8 +42,11 @@ export function Startups() {
         {/* Package "ticket" card */}
         <Reveal delay={0.1}>
           <div className="glow-orange relative rounded-2xl border border-accent-9/30 bg-surface/60 p-8 transition-colors duration-300 hover:border-accent-9/50">
-            <div className="flex items-baseline justify-between border-b border-hairline pb-5">
-              <h3 className="text-xl font-semibold text-fg">{t.startups.packageTitle}</h3>
+            <div className="flex items-center justify-between border-b border-hairline pb-5">
+              <h3 className="flex items-center gap-2 text-xl font-semibold text-fg">
+                <Lightning weight="fill" className="text-accent-9" aria-hidden="true" />
+                {t.startups.packageTitle}
+              </h3>
               <span className="glow-orange-soft rounded-full bg-accent-9/15 px-3 py-1 font-mono text-sm text-accent-11">
                 {t.startups.packageTime}
               </span>
