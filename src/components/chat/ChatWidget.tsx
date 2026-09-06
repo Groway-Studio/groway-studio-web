@@ -4,6 +4,7 @@ import { PaperPlaneRight, X } from '@phosphor-icons/react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { SiriOrb, type OrbMode } from '@/components/chat/SiriOrb'
 import { submitContact } from '@/lib/api'
+import { getTurnstileToken } from '@/lib/turnstile'
 
 /**
  * Chat-first contact: a floating Siri-style orb that opens a guided
@@ -113,12 +114,16 @@ export function ChatWidget() {
       lead.current.email = text
       setStage('done')
       setOrbMode('thinking')
-      submitContact({
-        name: lead.current.name,
-        email: lead.current.email,
-        depth: 'chat',
-        problem: lead.current.problem,
-      })
+      getTurnstileToken()
+        .then((turnstileToken) =>
+          submitContact({
+            name: lead.current.name,
+            email: lead.current.email,
+            depth: 'chat',
+            problem: lead.current.problem,
+            turnstileToken,
+          }),
+        )
         .then(() => {
           setMsgs((m) => [...m, { from: 'bot', text: t.chat.done }])
           setOrbMode('speaking')
