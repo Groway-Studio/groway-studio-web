@@ -10,7 +10,7 @@ const NAV_IDS = ['approach', 'depth', 'method', 'proof', 'startups'] as const
 
 function LangToggle() {
   const { language, setLanguage } = useLanguage()
-  const langs: Language[] = ['es', 'en']
+  const langs: Language[] = ['es', 'en', 'ko']
   return (
     <div className="flex items-center rounded-full border border-border p-0.5">
       {langs.map((l) => (
