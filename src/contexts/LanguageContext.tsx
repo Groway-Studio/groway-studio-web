@@ -13,6 +13,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const getBrowserLanguage = (): Language => {
   const browserLang = navigator.language.toLowerCase();
   if (browserLang.startsWith('es')) return 'es';
+  if (browserLang.startsWith('ko')) return 'ko';
   return 'en';
 };
 
