@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { List, X } from '@phosphor-icons/react'
+import { LogoMark } from '@/components/layout/Logo'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { scrollToId } from '@/lib/scroll'
 import { cn } from '@/lib/utils'
@@ -68,10 +69,10 @@ export function Navigation() {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="group flex items-center gap-2.5 text-fg"
         >
-          <span className="grid h-7 w-7 place-items-center rounded-md bg-accent-9 font-bold text-[oklch(0.14_0.02_40)] transition-shadow duration-200 group-hover:glow-orange-soft">
-            G
+          <LogoMark className="h-7 w-auto text-accent-9 transition-all duration-200 group-hover:drop-shadow-[0_0_10px_oklch(0.70_0.19_45/0.6)]" />
+          <span className="text-lg font-semibold tracking-tight">
+            groway<span className="text-fg-muted">.studio</span>
           </span>
-          <span className="text-lg font-semibold tracking-tight">Groway Studio</span>
         </button>
 
         <div className="hidden items-center gap-7 md:flex">

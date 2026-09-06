@@ -1,4 +1,3 @@
-import { Toaster } from 'sonner'
 import { Navigation } from '@/components/layout/Navigation'
 import { Footer } from '@/components/layout/Footer'
 import { Hero } from '@/components/sections/Hero'
@@ -8,6 +7,7 @@ import { Method } from '@/components/sections/Method'
 import { Proof } from '@/components/sections/Proof'
 import { Startups } from '@/components/sections/Startups'
 import { Contact } from '@/components/sections/Contact'
+import { ChatWidget } from '@/components/chat/ChatWidget'
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
-      <Toaster position="bottom-center" theme="dark" richColors />
+      <ChatWidget />
     </div>
   )
 }
