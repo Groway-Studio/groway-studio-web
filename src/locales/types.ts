@@ -105,6 +105,15 @@ export interface Translations {
     successToast: string
     errorToast: string
   }
+  chat: {
+    title: string
+    placeholder: string
+    send: string
+    thinking: string
+    error: string
+    open: string
+    close: string
+  }
   footer: {
     tagline: string
     servicesTitle: string

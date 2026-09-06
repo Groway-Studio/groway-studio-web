@@ -160,6 +160,15 @@ export const en: Translations = {
     successToast: "Got it. We'll get back to you within 48h.",
     errorToast: 'Something went wrong. Email us directly instead.',
   },
+  chat: {
+    title: 'LucIA · Groway Studio',
+    placeholder: 'Type your message…',
+    send: 'Send message',
+    thinking: 'Thinking…',
+    error: 'Something went wrong connecting. Please try again in a moment.',
+    open: 'Open chat with LucIA',
+    close: 'Close chat',
+  },
   footer: {
     tagline: 'AI engineering + science. From integration to what no one has solved yet.',
     servicesTitle: 'Services',

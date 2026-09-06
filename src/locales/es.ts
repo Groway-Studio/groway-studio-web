@@ -162,6 +162,15 @@ export const es: Translations = {
     successToast: 'Recibido. Te respondemos en menos de 48 h.',
     errorToast: 'Algo falló al enviar. Escríbenos directamente por email.',
   },
+  chat: {
+    title: 'LucIA · Groway Studio',
+    placeholder: 'Escribe tu mensaje…',
+    send: 'Enviar mensaje',
+    thinking: 'Pensando…',
+    error: 'Algo falló al conectar. Inténtalo de nuevo en un momento.',
+    open: 'Abrir el chat con LucIA',
+    close: 'Cerrar el chat',
+  },
   footer: {
     tagline: 'Ingeniería + ciencia de IA. De la integración a lo que nadie ha resuelto todavía.',
     servicesTitle: 'Servicios',
