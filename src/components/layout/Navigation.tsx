@@ -1,74 +1,130 @@
-import { TrendUp, List, X } from "@phosphor-icons/react"
-import { Button } from "@/components/ui/button"
-import { LanguageSelector } from "@/components/ui/language-selector"
-import { useLanguage } from "@/contexts/LanguageContext"
-import { Link } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from 'react'
+import { List, X } from '@phosphor-icons/react'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { scrollToId } from '@/lib/scroll'
+import { cn } from '@/lib/utils'
+import type { Language } from '@/locales/types'
+
+const NAV_IDS = ['approach', 'depth', 'method', 'proof', 'startups'] as const
+
+function LangToggle() {
+  const { language, setLanguage } = useLanguage()
+  const langs: Language[] = ['es', 'en']
+  return (
+    <div className="flex items-center rounded-full border border-border p-0.5">
+      {langs.map((l) => (
+        <button
+          key={l}
+          onClick={() => setLanguage(l)}
+          aria-pressed={language === l}
+          className={cn(
+            'rounded-full px-3 py-1.5 font-mono text-xs uppercase transition-all duration-200 ease-out active:scale-95',
+            language === l ? 'bg-accent-9 text-[oklch(0.14_0.02_40)]' : 'text-fg-subtle hover:text-fg',
+          )}
+        >
+          {l}
+        </button>
+      ))}
+    </div>
+  )
+}
 
 export function Navigation() {
-  const { t } = useLanguage();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+  const { t } = useLanguage()
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.7)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const go = (id: string) => {
+    setMenuOpen(false)
+    scrollToId(id)
+  }
+
+  const navLabels: Record<(typeof NAV_IDS)[number], string> = {
+    approach: t.nav.approach,
+    depth: t.nav.depth,
+    method: t.nav.method,
+    proof: t.nav.proof,
+    startups: t.nav.startups,
+  }
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
-          <TrendUp className="text-accent" size={28} weight="bold" />
-          <span className="text-xl font-bold text-foreground">Groway Studio</span>
-        </Link>
-        
-        <div className="hidden md:flex items-center gap-8">
-          <Link to="/servicios" className="text-sm font-medium text-muted-foreground hover:text-accent transition-colors">
-            {t.nav.services}
-          </Link>
-          <Link to="/nosotros" className="text-sm font-medium text-muted-foreground hover:text-accent transition-colors">
-            {t.nav.about}
-          </Link>
-          <Link to="/contacto" className="text-sm font-medium text-muted-foreground hover:text-accent transition-colors">
-            {t.nav.contact}
-          </Link>
+    <header
+      className={cn(
+        'fixed inset-x-0 top-0 z-50 transition-all duration-500',
+        scrolled
+          ? 'border-b border-hairline bg-bg/80 backdrop-blur-md'
+          : 'border-b border-transparent bg-transparent',
+      )}
+    >
+      <nav className="mx-auto flex max-w-[75rem] items-center justify-between px-6 py-4 lg:px-8">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="group flex items-center gap-2.5 text-fg"
+        >
+          <span className="grid h-7 w-7 place-items-center rounded-md bg-accent-9 font-bold text-[oklch(0.14_0.02_40)] transition-shadow duration-200 group-hover:glow-orange-soft">
+            G
+          </span>
+          <span className="text-lg font-semibold tracking-tight">Groway Studio</span>
+        </button>
+
+        <div className="hidden items-center gap-7 md:flex">
+          {NAV_IDS.map((id) => (
+            <button
+              key={id}
+              onClick={() => go(id)}
+              className="relative py-1 text-sm font-medium text-fg-muted transition-colors duration-200 after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-accent-11/70 after:transition-transform after:duration-200 after:ease-out hover:text-accent-11 hover:after:scale-x-100"
+            >
+              {navLabels[id]}
+            </button>
+          ))}
         </div>
 
-        <div className="flex items-center gap-2">
-          <LanguageSelector />
-          <Button 
-            variant="ghost" 
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+        <div className="flex items-center gap-3">
+          <LangToggle />
+          <button
+            onClick={() => go('contact')}
+            className="hidden rounded-lg bg-accent-9 px-4 py-2 text-sm font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 hover:glow-orange-soft active:scale-[0.98] sm:inline-flex"
           >
-            {isMenuOpen ? <X size={24} weight="bold" /> : <List size={24} weight="bold" />}
-          </Button>
+            {t.nav.cta}
+          </button>
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="Menu"
+            className="-m-2 rounded-md p-2 text-fg transition-colors duration-200 hover:text-accent-11 md:hidden"
+          >
+            {menuOpen ? <X size={24} weight="bold" /> : <List size={24} weight="bold" />}
+          </button>
         </div>
-      </div>
+      </nav>
 
-      {isMenuOpen && (
-        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
-          <div className="px-6 py-4 space-y-4">
-            <Link 
-              to="/servicios" 
-              className="block text-sm font-medium text-muted-foreground hover:text-accent transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+      {menuOpen && (
+        <div className="border-t border-hairline bg-bg/95 backdrop-blur-md md:hidden">
+          <div className="space-y-1 px-6 py-4">
+            {NAV_IDS.map((id) => (
+              <button
+                key={id}
+                onClick={() => go(id)}
+                className="block w-full py-2.5 text-left text-sm font-medium text-fg-muted transition-colors duration-200 hover:text-accent-11"
+              >
+                {navLabels[id]}
+              </button>
+            ))}
+            <button
+              onClick={() => go('contact')}
+              className="mt-2 block w-full rounded-lg bg-accent-9 px-4 py-3 text-center text-sm font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 active:scale-[0.99]"
             >
-              {t.nav.services}
-            </Link>
-            <Link 
-              to="/nosotros" 
-              className="block text-sm font-medium text-muted-foreground hover:text-accent transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t.nav.about}
-            </Link>
-            <Link 
-              to="/contacto" 
-              className="block text-sm font-medium text-muted-foreground hover:text-accent transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t.nav.contact}
-            </Link>
+              {t.nav.cta}
+            </button>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   )
 }

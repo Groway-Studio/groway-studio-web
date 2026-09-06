@@ -1,25 +1,28 @@
-import tailwindcss from "@tailwindcss/vite";
-import react from "@vitejs/plugin-react-swc";
-import { defineConfig } from "vite";
+import tailwindcss from '@tailwindcss/vite'
+import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
-const projectRoot = process.env.PROJECT_ROOT || import.meta.dirname
-
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   base: '/',
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
-      '@': resolve(projectRoot, 'src')
-    }
+      '@': resolve(import.meta.dirname, 'src'),
+    },
   },
   build: {
     outDir: 'dist',
     sourcemap: false,
     minify: 'esbuild',
-  }
-}));
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          motion: ['framer-motion'],
+        },
+      },
+    },
+  },
+})

@@ -1,3 +1,10 @@
 /// <reference types="vite/client" />
-declare const GITHUB_RUNTIME_PERMANENT_NAME: string
-declare const BASE_KV_SERVICE_URL: string
+
+interface ImportMetaEnv {
+  /** Contact form POST target; when absent the form falls back to mailto. */
+  readonly VITE_CONTACT_ENDPOINT?: string
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}

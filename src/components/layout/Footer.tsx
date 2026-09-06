@@ -1,75 +1,81 @@
-import { TrendUp, GithubLogo, LinkedinLogo, TwitterLogo } from "@phosphor-icons/react"
-import { Separator } from "@/components/ui/separator"
-import { useLanguage } from "@/contexts/LanguageContext"
+import { useLanguage } from '@/contexts/LanguageContext'
+import { scrollToId } from '@/lib/scroll'
 
 export function Footer() {
-  const { t } = useLanguage();
-  const currentYear = new Date().getFullYear()
-  
+  const { t } = useLanguage()
+
+  const services = ['Orchestrate', 'Engineer', 'Model', 'Research']
+  const company: Array<{ label: string; id: string }> = [
+    { label: t.nav.approach, id: 'approach' },
+    { label: t.nav.proof, id: 'proof' },
+    { label: t.nav.startups, id: 'startups' },
+  ]
+
   return (
-    <footer className="bg-secondary/30 border-t border-border">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <TrendUp className="text-accent" size={28} weight="bold" />
-              <span className="text-xl font-bold text-foreground">Groway Studio</span>
+    <footer className="border-t border-hairline bg-bg-inset">
+      <div className="mx-auto max-w-[75rem] px-6 py-16 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+          <div>
+            <div className="flex items-center gap-2.5">
+              <span className="grid h-7 w-7 place-items-center rounded-md bg-accent-9 font-bold text-[oklch(0.14_0.02_40)]">
+                G
+              </span>
+              <span className="text-lg font-semibold tracking-tight text-fg">Groway Studio</span>
             </div>
-            <p className="text-muted-foreground">
-              {t.footer.description}
-            </p>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-fg-muted">{t.footer.tagline}</p>
           </div>
-          
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
-              Company
+
+          <div>
+            <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-fg-subtle">
+              {t.footer.servicesTitle}
             </h3>
-            <ul className="space-y-2">
-              <li><a href="#about" className="text-muted-foreground hover:text-accent transition-colors">{t.nav.about}</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">{t.nav.services}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Case Studies</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">{t.nav.contact}</a></li>
+            <ul className="mt-4 space-y-2.5">
+              {services.map((s) => (
+                <li key={s}>
+                  <button
+                    onClick={() => scrollToId('depth')}
+                    className="relative py-0.5 text-sm text-fg-muted transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-accent-11/70 after:transition-transform after:duration-200 after:ease-out hover:text-accent-11 hover:after:scale-x-100"
+                  >
+                    {s}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
-          
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
-              {t.nav.services}
+
+          <div>
+            <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-fg-subtle">
+              {t.footer.companyTitle}
             </h3>
-            <ul className="space-y-2">
-              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">{t.services.items.strategy.title}</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">{t.services.items.ml.title}</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">{t.services.items.automation.title}</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-accent transition-colors">{t.services.items.custom.title}</a></li>
+            <ul className="mt-4 space-y-2.5">
+              {company.map((c) => (
+                <li key={c.id}>
+                  <button
+                    onClick={() => scrollToId(c.id)}
+                    className="relative py-0.5 text-sm text-fg-muted transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-accent-11/70 after:transition-transform after:duration-200 after:ease-out hover:text-accent-11 hover:after:scale-x-100"
+                  >
+                    {c.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
-          
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
-              Connect
+
+          <div>
+            <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-fg-subtle">
+              {t.footer.contactTitle}
             </h3>
-            <div className="flex gap-3">
-              <a href="#" className="w-10 h-10 rounded-lg bg-card border border-border hover:border-accent hover:bg-accent/10 flex items-center justify-center transition-all">
-                <LinkedinLogo size={20} weight="bold" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-card border border-border hover:border-accent hover:bg-accent/10 flex items-center justify-center transition-all">
-                <TwitterLogo size={20} weight="bold" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-card border border-border hover:border-accent hover:bg-accent/10 flex items-center justify-center transition-all">
-                <GithubLogo size={20} weight="bold" />
-              </a>
-            </div>
+            <a
+              href={`mailto:${t.footer.contactEmail}`}
+              className="relative mt-4 inline-block py-0.5 text-sm text-fg-muted transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-accent-11/70 after:transition-transform after:duration-200 after:ease-out hover:text-accent-11 hover:after:scale-x-100"
+            >
+              {t.footer.contactEmail}
+            </a>
           </div>
         </div>
-        
-        <Separator className="mb-8" />
-        
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>© {currentYear} Groway Studio. {t.footer.copyright}</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-accent transition-colors">Terms of Service</a>
-          </div>
+
+        <div className="mt-14 border-t border-hairline pt-6">
+          <p className="text-xs text-fg-subtle">{t.footer.copyright}</p>
         </div>
       </div>
     </footer>

@@ -1,19 +1,36 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { HomePage } from '@/pages/HomePage'
-import { OurServicesPage } from '@/pages/OurServicesPage'
-import { AboutUsPage } from '@/pages/AboutUsPage'
-import { ContactPage } from '@/pages/ContactPage'
+import { Toaster } from 'sonner'
+import { Navigation } from '@/components/layout/Navigation'
+import { Footer } from '@/components/layout/Footer'
+import { Hero } from '@/components/sections/Hero'
+import { Approach } from '@/components/sections/Approach'
+import { DepthLevels } from '@/components/sections/DepthLevels'
+import { Method } from '@/components/sections/Method'
+import { Proof } from '@/components/sections/Proof'
+import { Startups } from '@/components/sections/Startups'
+import { Contact } from '@/components/sections/Contact'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/servicios" element={<OurServicesPage />} />
-        <Route path="/nosotros" element={<AboutUsPage />} />
-        <Route path="/contacto" element={<ContactPage />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="min-h-screen bg-bg text-fg">
+      <a
+        href="#approach"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-accent-9 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[oklch(0.14_0.02_40)]"
+      >
+        Skip to content
+      </a>
+      <Navigation />
+      <main>
+        <Hero />
+        <Approach />
+        <DepthLevels />
+        <Method />
+        <Proof />
+        <Startups />
+        <Contact />
+      </main>
+      <Footer />
+      <Toaster position="bottom-center" theme="dark" richColors />
+    </div>
   )
 }
 
