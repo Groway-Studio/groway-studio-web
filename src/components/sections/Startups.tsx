@@ -2,7 +2,7 @@ import { Check, Lightning } from '@phosphor-icons/react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { Section, Eyebrow } from '@/components/layout/Section'
 import { Reveal } from '@/components/ui/Reveal'
-import { openChat } from '@/components/chat/ChatWidget'
+import { focusLucia } from '@/components/hero/LuciaConversation'
 
 export function Startups() {
   const { t } = useLanguage()
@@ -31,7 +31,7 @@ export function Startups() {
           </Reveal>
           <Reveal delay={0.15}>
             <button
-              onClick={() => openChat(t.chat.prefillMvp)}
+              onClick={() => focusLucia(t.lucia.prefillMvp)}
               className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-accent-9 px-7 py-4 text-base font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 hover:glow-orange active:scale-[0.98]"
             >
               {t.startups.cta}

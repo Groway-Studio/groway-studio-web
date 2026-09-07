@@ -94,19 +94,19 @@ export interface Translations {
     privacy: string
     emailNote: string
   }
-  chat: {
-    launcher: string
+  lucia: {
+    /** Presence name shown near the orb. */
     title: string
-    prefillMvp: string
-    greeting: string
-    askName: string
-    askEmail: string
-    invalidEmail: string
-    done: string
-    error: string
+    /** One-line greeting near the orb before the first exchange. */
+    intro: string
+    /** Input placeholder — "talk to LucIA". */
     placeholder: string
+    /** Drafted message left in the input by the Startups CTA. */
+    prefillMvp: string
+    /** aria-label / CTA that focuses the LucIA input. */
+    openLabel: string
     send: string
-    close: string
+    error: string
   }
   footer: {
     tagline: string

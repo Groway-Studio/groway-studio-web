@@ -7,7 +7,6 @@ import { Method } from '@/components/sections/Method'
 import { Proof } from '@/components/sections/Proof'
 import { Startups } from '@/components/sections/Startups'
 import { Contact } from '@/components/sections/Contact'
-import { ChatWidget } from '@/components/chat/ChatWidget'
 
 function App() {
   return (
@@ -29,7 +28,6 @@ function App() {
         <Contact />
       </main>
       <Footer />
-      <ChatWidget />
     </div>
   )
 }

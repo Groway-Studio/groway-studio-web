@@ -2,8 +2,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { Section, Eyebrow } from '@/components/layout/Section'
 import { Reveal } from '@/components/ui/Reveal'
 import { DotField } from '@/components/visuals/DotField'
-import { SiriOrb } from '@/components/chat/SiriOrb'
-import { openChat } from '@/components/chat/ChatWidget'
+import { focusLucia } from '@/components/hero/LuciaConversation'
 
 const CONTACT_EMAIL = 'hola@groway.studio'
 
@@ -27,23 +26,13 @@ export function Contact() {
           <p className="mx-auto mt-4 max-w-xl text-lg text-fg-muted">{t.contact.subhead}</p>
         </Reveal>
 
-        {/* The assistant orb is the CTA */}
-        <Reveal delay={0.15}>
-          <button
-            onClick={() => openChat()}
-            aria-label={t.chat.launcher}
-            className="group mx-auto mt-10 block rounded-full transition-transform duration-300 ease-out hover:scale-105 active:scale-95"
-          >
-            <SiriOrb size={128} mode="passive" />
-          </button>
-        </Reveal>
-
+        {/* Talking to LucIA is the CTA — she takes it from there, no forms */}
         <Reveal delay={0.2}>
           <button
-            onClick={() => openChat()}
-            className="mt-6 inline-flex items-center justify-center rounded-lg bg-accent-9 px-8 py-4 text-base font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 hover:glow-orange active:scale-[0.98]"
+            onClick={() => focusLucia()}
+            className="mt-8 inline-flex items-center justify-center rounded-lg bg-accent-9 px-8 py-4 text-base font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 hover:glow-orange active:scale-[0.98]"
           >
-            {t.chat.launcher}
+            {t.lucia.openLabel}
           </button>
         </Reveal>
 

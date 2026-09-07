@@ -1,6 +1,7 @@
-import { ArrowRight } from '@phosphor-icons/react'
+import { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
-import { PointCloudCanvas } from '@/components/hero/PointCloudCanvas'
+import { PointCloudCanvas, type OrbState } from '@/components/hero/PointCloudCanvas'
+import { LuciaConversation } from '@/components/hero/LuciaConversation'
 import { scrollToId } from '@/lib/scroll'
 
 /** Renders the H1 with the highlight substring wrapped in the signature gradient. */
@@ -18,11 +19,12 @@ function HeadlineWithHighlight({ text, highlight }: { text: string; highlight: s
 
 export function Hero() {
   const { t } = useLanguage()
+  const [orbState, setOrbState] = useState<OrbState>('idle')
 
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-bg-inset">
-      {/* Animated point-cloud, decorative, behind everything */}
-      <PointCloudCanvas className="pointer-events-none absolute inset-0 h-full w-full" />
+      {/* LucIA's presence — the orb reacts as she listens, thinks and speaks */}
+      <PointCloudCanvas state={orbState} className="pointer-events-none absolute inset-0 h-full w-full" />
 
       {/* Legibility overlays: top fade, strong fade to next section, text scrim */}
       <div className="pointer-events-none absolute inset-0">
@@ -45,21 +47,8 @@ export function Hero() {
             {t.hero.subhead}
           </p>
 
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <button
-              onClick={() => scrollToId('contact')}
-              className="group inline-flex items-center justify-center gap-2 rounded-lg bg-accent-9 px-7 py-4 text-base font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 hover:glow-orange active:scale-[0.98]"
-            >
-              {t.hero.ctaPrimary}
-              <ArrowRight weight="bold" className="transition-transform duration-200 ease-out group-hover:translate-x-1" />
-            </button>
-            <button
-              onClick={() => scrollToId('approach')}
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-border px-7 py-4 text-base font-medium text-fg transition-colors duration-200 hover:border-accent-9/60 hover:bg-surface/40 hover:text-accent-11"
-            >
-              {t.hero.ctaSecondary}
-            </button>
-          </div>
+          {/* Talk to LucIA — the orb above is her presence */}
+          <LuciaConversation onStateChange={setOrbState} />
         </div>
       </div>
 

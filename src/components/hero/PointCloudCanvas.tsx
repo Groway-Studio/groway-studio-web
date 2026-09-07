@@ -7,11 +7,22 @@ import { useEffect, useRef } from 'react'
  * noise in the vertex shader, then coloured by the displacement amount
  * (deep blue valleys -> magenta -> orange/amber peaks) to match the brand.
  *
+ * This orb is LucIA's presence. The `state` prop modulates the shader so she
+ * reacts while she listens, thinks and speaks — never a chatbot, a presence:
+ * - idle       gentle drift, exactly as at rest.
+ * - listening  spin eases off, breathing deepens (attentive stillness).
+ * - thinking   spin quickens, a faster shimmer, the cloud tightens.
+ * - speaking   dispersion pulses to a voice-like rhythm, brighter.
+ * Uniforms lerp toward their targets every frame, so switching state never
+ * snaps. At rest (`idle`) the render is byte-identical to before.
+ *
  * Performance & accessibility notes:
  * - Honours `prefers-reduced-motion`: renders a single static frame.
  * - Caps devicePixelRatio at 2 so it stays smooth on retina/mobile.
  * - Pauses the RAF loop while the canvas is scrolled out of view.
  */
+
+export type OrbState = 'idle' | 'listening' | 'thinking' | 'speaking'
 
 const VERT = /* glsl */ `
 precision highp float;
@@ -21,6 +32,8 @@ uniform float uTime;
 uniform vec2  uMouse;
 uniform mat4  uProj;
 uniform float uPixelRatio;
+uniform float uSpinPhase; /* accumulated rotation angle (rad) */
+uniform float uPulse;     /* 0..1 activity: extra breathe + shimmer + size */
 
 varying float vNoise;
 varying float vDepth;
@@ -94,21 +107,23 @@ void main(){
   float phase = vPhase * 0.7;
   float ts = uTime * speed;
 
-  float n = fbm(aDir * 1.6 + vec3(ts, ts * 0.7, -ts * 0.5) + phase);
+  // A faint high-frequency shimmer, only present while active (uPulse > 0).
+  float shimmer = uPulse * 0.10 * snoise(aDir * 4.5 + uTime * 1.7);
+  float n = fbm(aDir * 1.6 + vec3(ts, ts * 0.7, -ts * 0.5) + phase) + shimmer;
   vNoise = n;
 
-  float breathe = sin(uTime * 0.5) * 0.06;
+  float breathe = sin(uTime * 0.5) * 0.06 + uPulse * 0.10 * sin(uTime * 2.4);
   float disp = n * 0.42 + breathe;
   vec3 pos = aDir * (1.0 + disp);
 
-  pos = rotY(uTime * 0.08 + uMouse.x * 0.55) * rotX(uMouse.y * 0.35 + sin(uTime*0.05)*0.1) * pos;
+  pos = rotY(uSpinPhase + uMouse.x * 0.55) * rotX(uMouse.y * 0.35 + sin(uTime*0.05)*0.1) * pos;
 
   vec4 mv = vec4(pos.xy, pos.z - 3.1, 1.0);
   gl_Position = uProj * mv;
 
   vDepth = smoothstep(-4.6, -1.8, mv.z);
 
-  float size = (1.4 + n * 2.2) * uPixelRatio;
+  float size = (1.4 + n * 2.2) * uPixelRatio * (1.0 + uPulse * 0.35);
   gl_PointSize = size * (3.4 / -mv.z) * 1.6;
 }
 `
@@ -178,8 +193,17 @@ function buildSphere(lat: number, lon: number): Float32Array {
   return dirs
 }
 
-export function PointCloudCanvas({ className }: { className?: string }) {
+export function PointCloudCanvas({
+  className,
+  state = 'idle',
+}: {
+  className?: string
+  state?: OrbState
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  // Live-updated ref so the RAF loop reads the fresh state without re-init.
+  const stateRef = useRef<OrbState>(state)
+  stateRef.current = state
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -224,6 +248,8 @@ export function PointCloudCanvas({ className }: { className?: string }) {
     const uMouse = gl.getUniformLocation(program, 'uMouse')
     const uProj = gl.getUniformLocation(program, 'uProj')
     const uPR = gl.getUniformLocation(program, 'uPixelRatio')
+    const uSpinPhase = gl.getUniformLocation(program, 'uSpinPhase')
+    const uPulse = gl.getUniformLocation(program, 'uPulse')
 
     let pixelRatio = 1
     const resize = () => {
@@ -259,24 +285,60 @@ export function PointCloudCanvas({ className }: { className?: string }) {
     )
     io.observe(canvas)
 
+    // Per-state targets: [spin-rate scale, pulse]. Spin phase is accumulated
+    // so the rate can lerp without ever snapping the rotation angle.
+    const targetFor = (s: OrbState, t: number): [number, number] => {
+      switch (s) {
+        case 'listening':
+          return [0.55, 0.18]
+        case 'thinking':
+          return [1.9, 0.35]
+        case 'speaking': {
+          // Fake a voice rhythm so dispersion pulses like speech.
+          const voice = Math.abs(Math.sin(t * 3.7)) * 0.6 + Math.abs(Math.sin(t * 1.3)) * 0.4
+          return [1.25, 0.4 + 0.6 * Math.min(voice, 1)]
+        }
+        default:
+          return [1, 0]
+      }
+    }
+
     let raf = 0
-    const t0 = performance.now()
-    const render = (timeSec: number) => {
+    let spinPhase = 0
+    let spinRate = 1
+    let pulse = 0
+    let last = performance.now()
+    const t0 = last
+
+    const render = (timeSec: number, dt: number) => {
+      const [targetRate, targetPulse] = targetFor(stateRef.current, timeSec)
+      spinRate += (targetRate - spinRate) * 0.05
+      pulse += (targetPulse - pulse) * 0.08
+      spinPhase += 0.08 * spinRate * dt
+
       mx += (tx - mx) * 0.04
       my += (ty - my) * 0.04
       gl.uniform1f(uTime, timeSec)
       gl.uniform2f(uMouse, mx, my)
+      gl.uniform1f(uSpinPhase, spinPhase)
+      gl.uniform1f(uPulse, pulse)
       gl.clear(gl.COLOR_BUFFER_BIT)
       gl.drawArrays(gl.POINTS, 0, COUNT)
     }
 
     if (reduceMotion) {
-      render(6.0) // one representative static frame
+      spinPhase = 0.08 * 6.0 // match the static frame's original rotation
+      render(6.0, 0) // one representative static frame
     } else {
       const loop = (now: number) => {
         raf = requestAnimationFrame(loop)
-        if (!visible) return
-        render((now - t0) / 1000)
+        if (!visible) {
+          last = now
+          return
+        }
+        const dt = Math.min((now - last) / 1000, 0.05)
+        last = now
+        render((now - t0) / 1000, dt)
       }
       raf = requestAnimationFrame(loop)
     }
