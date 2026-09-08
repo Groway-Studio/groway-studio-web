@@ -21,7 +21,7 @@ export type TurnEvent =
 // VITE_CHAT_ENDPOINT mantiene prioridad para overrides manuales.
 function defaultChatEndpoint(): string {
   if (typeof location !== 'undefined' && location.hostname.endsWith('groway.studio')) {
-    return 'https://api.groway.studio/chat'
+    return 'https://api.groway.studio/public/chat'
   }
   return '/api/chat'
 }
