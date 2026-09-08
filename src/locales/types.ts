@@ -99,10 +99,6 @@ export interface Translations {
     title: string
     prefillMvp: string
     greeting: string
-    askName: string
-    askEmail: string
-    invalidEmail: string
-    done: string
     error: string
     placeholder: string
     send: string

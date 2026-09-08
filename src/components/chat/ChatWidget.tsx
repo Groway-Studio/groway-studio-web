@@ -3,14 +3,16 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { PaperPlaneRight, X } from '@phosphor-icons/react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { SiriOrb, type OrbMode } from '@/components/chat/SiriOrb'
-import { submitContact } from '@/lib/api'
-import { getTurnstileToken } from '@/lib/turnstile'
+import { streamChat } from '@/lib/chat'
 
 /**
- * Chat-first contact: a floating Siri-style orb that opens a guided
- * conversation. The scripted flow qualifies the lead exactly like the old
- * form did (problem → name → email) and ships it through the same API layer.
- * The orb morphs from launcher to chat-header avatar via a shared layoutId.
+ * LucIA como orbe flotante: un SiriOrb en la esquina que, al abrirse, despliega
+ * un panel de conversación donde el diálogo llega token a token por streaming.
+ * El orbe es su presencia — reacciona al estado del turno (piensa / habla) vía
+ * su prop `mode`.
+ *
+ * Sin formulario: LucIA toma los datos de contacto conversando (el lead lo
+ * registra soul). El resto de CTAs abren este widget con el evento `openChat`.
  */
 
 const OPEN_EVENT = 'groway:chat-open'
@@ -30,18 +32,13 @@ interface Msg {
   text: string
 }
 
-type Stage = 'problem' | 'name' | 'email' | 'done'
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
 export function ChatWidget() {
   const { t } = useLanguage()
   const [open, setOpen] = useState(false)
   const [msgs, setMsgs] = useState<Msg[]>([])
   const [input, setInput] = useState('')
   const [orbMode, setOrbMode] = useState<OrbMode>('passive')
-  const [stage, setStage] = useState<Stage>('problem')
-  const lead = useRef({ problem: '', name: '', email: '' })
+  const [busy, setBusy] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const reduce = useReducedMotion()
@@ -83,60 +80,49 @@ export function ChatWidget() {
     return () => window.removeEventListener('keydown', onKey)
   }, [open])
 
-  const say = useCallback((text: string, thinkMs = 900) => {
-    setOrbMode('thinking')
-    setTimeout(() => {
-      setMsgs((m) => [...m, { from: 'bot', text }])
-      setOrbMode('speaking')
-      setTimeout(() => setOrbMode('passive'), 1400)
-    }, thinkMs)
-  }, [])
-
-  const send = () => {
-    const text = input.trim()
-    if (!text || orbMode === 'thinking') return
-    setMsgs((m) => [...m, { from: 'user', text }])
-    setInput('')
-
-    if (stage === 'problem') {
-      lead.current.problem = text
-      setStage('name')
-      say(t.chat.askName)
-    } else if (stage === 'name') {
-      lead.current.name = text
-      setStage('email')
-      say(t.chat.askEmail)
-    } else if (stage === 'email') {
-      if (!EMAIL_RE.test(text)) {
-        say(t.chat.invalidEmail, 600)
-        return
-      }
-      lead.current.email = text
-      setStage('done')
+  const send = useCallback(
+    async (text: string) => {
+      setMsgs((m) => [...m, { from: 'user', text }, { from: 'bot', text: '' }])
+      setBusy(true)
       setOrbMode('thinking')
-      getTurnstileToken()
-        .then((turnstileToken) =>
-          submitContact({
-            name: lead.current.name,
-            email: lead.current.email,
-            depth: 'chat',
-            problem: lead.current.problem,
-            turnstileToken,
-          }),
-        )
-        .then(() => {
-          setMsgs((m) => [...m, { from: 'bot', text: t.chat.done }])
-          setOrbMode('speaking')
-          setTimeout(() => setOrbMode('passive'), 1600)
+
+      try {
+        let first = true
+        for await (const event of streamChat(text)) {
+          if (event.type !== 'text_delta') continue
+          if (first) {
+            setOrbMode('speaking')
+            first = false
+          }
+          setMsgs((m) => {
+            const next = m.slice()
+            const last = next[next.length - 1]
+            next[next.length - 1] = { from: 'bot', text: last.text + event.text }
+            return next
+          })
+        }
+      } catch {
+        // Replace the empty placeholder reply with a plain error line.
+        setMsgs((m) => {
+          const last = m[m.length - 1]
+          if (last?.from === 'bot' && last.text === '') {
+            return [...m.slice(0, -1), { from: 'bot', text: t.chat.error }]
+          }
+          return [...m, { from: 'bot', text: t.chat.error }]
         })
-        .catch(() => {
-          setMsgs((m) => [...m, { from: 'bot', text: t.chat.error }])
-          setOrbMode('passive')
-        })
-    } else {
-      // conversation finished — acknowledge politely
-      say(t.chat.done, 500)
-    }
+      } finally {
+        setBusy(false)
+        setOrbMode('passive')
+      }
+    },
+    [t.chat.error],
+  )
+
+  const submit = () => {
+    const text = input.trim()
+    if (!text || busy) return
+    setInput('')
+    void send(text)
   }
 
   return (
@@ -211,35 +197,21 @@ export function ChatWidget() {
                   <div
                     className={
                       m.from === 'user'
-                        ? 'max-w-[85%] rounded-2xl rounded-br-md bg-accent-9/15 px-4 py-2.5 text-sm leading-relaxed text-fg'
-                        : 'max-w-[85%] rounded-2xl rounded-bl-md border border-hairline bg-surface/70 px-4 py-2.5 text-sm leading-relaxed text-fg'
+                        ? 'max-w-[85%] whitespace-pre-wrap rounded-2xl rounded-br-md bg-accent-9/15 px-4 py-2.5 text-sm leading-relaxed text-fg'
+                        : 'max-w-[85%] whitespace-pre-wrap rounded-2xl rounded-bl-md border border-hairline bg-surface/70 px-4 py-2.5 text-sm leading-relaxed text-fg'
                     }
                   >
-                    {m.text}
+                    {m.text || <TypingDots reduce={reduce} />}
                   </div>
                 </div>
               ))}
-              {orbMode === 'thinking' && (
-                <div className="flex justify-start">
-                  <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-md border border-hairline bg-surface/70 px-4 py-3">
-                    {[0, 1, 2].map((i) => (
-                      <motion.span
-                        key={i}
-                        animate={reduce ? undefined : { opacity: [0.3, 1, 0.3] }}
-                        transition={{ duration: 1.1, repeat: Infinity, delay: i * 0.2 }}
-                        className="h-1.5 w-1.5 rounded-full bg-accent-11"
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* Input */}
             <form
               onSubmit={(e) => {
                 e.preventDefault()
-                send()
+                submit()
               }}
               className="flex items-center gap-2 border-t border-hairline p-3"
             >
@@ -254,7 +226,7 @@ export function ChatWidget() {
               <button
                 type="submit"
                 aria-label={t.chat.send}
-                disabled={!input.trim() || orbMode === 'thinking'}
+                disabled={!input.trim() || busy}
                 className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent-9 text-[oklch(0.14_0.02_40)] transition-all duration-200 hover:bg-accent-10 active:scale-95 disabled:opacity-50"
               >
                 <PaperPlaneRight size={18} weight="fill" />
@@ -264,5 +236,20 @@ export function ChatWidget() {
         )}
       </AnimatePresence>
     </>
+  )
+}
+
+function TypingDots({ reduce }: { reduce: boolean | null }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 align-middle">
+      {[0, 1, 2].map((i) => (
+        <motion.span
+          key={i}
+          animate={reduce ? undefined : { opacity: [0.3, 1, 0.3] }}
+          transition={{ duration: 1.1, repeat: Infinity, delay: i * 0.2 }}
+          className="h-1.5 w-1.5 rounded-full bg-accent-11"
+        />
+      ))}
+    </span>
   )
 }
