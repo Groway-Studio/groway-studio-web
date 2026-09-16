@@ -33,5 +33,7 @@ function stripSeparatorLines(block: string): string {
  */
 export function typingDelayMs(bubble: string): number {
   const words = bubble.trim().split(/\s+/).filter(Boolean).length
-  return Math.min(400 + words * 30, 1500)
+  // Cadencia humana: una persona tarda ~1–3s en teclear el siguiente mensaje.
+  // Base cómoda + tiempo por palabra, con tope para que no se haga eterno.
+  return Math.min(900 + words * 55, 3200)
 }
