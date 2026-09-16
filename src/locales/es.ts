@@ -160,6 +160,7 @@ export const es: Translations = {
     placeholder: 'Escribe tu mensaje…',
     send: 'Enviar',
     close: 'Cerrar chat',
+    typing: 'LucIA está escribiendo…',
   },
   footer: {
     tagline: 'Ingeniería + ciencia de IA. De la integración a lo que nadie ha resuelto todavía.',

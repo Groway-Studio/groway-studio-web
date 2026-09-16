@@ -159,6 +159,7 @@ export const ko: Translations = {
     placeholder: '메시지를 입력하세요…',
     send: '보내기',
     close: '채팅 닫기',
+    typing: 'LucIA가 입력 중이에요…',
   },
   footer: {
     tagline: 'AI 엔지니어링 + 과학. 통합부터 아무도 풀지 못한 문제까지.',

@@ -103,6 +103,7 @@ export interface Translations {
     placeholder: string
     send: string
     close: string
+    typing: string
   }
   footer: {
     tagline: string

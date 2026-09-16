@@ -159,6 +159,7 @@ export const en: Translations = {
     placeholder: 'Type your message…',
     send: 'Send',
     close: 'Close chat',
+    typing: 'LucIA is typing…',
   },
   footer: {
     tagline: 'AI engineering + science. From integration to what no one has solved yet.',

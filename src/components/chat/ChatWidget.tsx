@@ -4,6 +4,7 @@ import { PaperPlaneRight, X } from '@phosphor-icons/react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { SiriOrb, type OrbMode } from '@/components/chat/SiriOrb'
 import { streamChat } from '@/lib/chat'
+import { splitBubbles, typingDelayMs } from '@/lib/bubbles'
 
 /**
  * LucIA como orbe flotante: un SiriOrb en la esquina que, al abrirse, despliega
@@ -42,6 +43,15 @@ export function ChatWidget() {
   const listRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const reduce = useReducedMotion()
+  // Timers de la revelación secuencial de burbujas; se cancelan al desmontar.
+  const revealTimers = useRef<ReturnType<typeof setTimeout>[]>([])
+
+  useEffect(
+    () => () => {
+      revealTimers.current.forEach(clearTimeout)
+    },
+    [],
+  )
 
   useEffect(() => {
     const onOpen = (e: Event) => {
@@ -80,12 +90,26 @@ export function ChatWidget() {
     return () => window.removeEventListener('keydown', onKey)
   }, [open])
 
+  // Espera cancelable: el timer queda registrado para poder abortarlo al cerrar.
+  const wait = useCallback(
+    (ms: number) =>
+      new Promise<void>((resolve) => {
+        const id = setTimeout(() => {
+          revealTimers.current = revealTimers.current.filter((t) => t !== id)
+          resolve()
+        }, ms)
+        revealTimers.current.push(id)
+      }),
+    [],
+  )
+
   const send = useCallback(
     async (text: string) => {
       setMsgs((m) => [...m, { from: 'user', text }, { from: 'bot', text: '' }])
       setBusy(true)
       setOrbMode('thinking')
 
+      let raw = ''
       try {
         let first = true
         for await (const event of streamChat(text)) {
@@ -94,10 +118,28 @@ export function ChatWidget() {
             setOrbMode('speaking')
             first = false
           }
+          raw += event.text
+          // Durante el stream mostramos solo el primer beat: así el texto aparece
+          // apenas llega, sin enseñar separadores crudos ni adelantar burbujas.
+          const firstBubble = splitBubbles(raw)[0] ?? ''
           setMsgs((m) => {
             const next = m.slice()
-            const last = next[next.length - 1]
-            next[next.length - 1] = { from: 'bot', text: last.text + event.text }
+            next[next.length - 1] = { from: 'bot', text: firstBubble }
+            return next
+          })
+        }
+
+        // Turno cerrado: si LucIA mandó varios beats, revélalos uno a uno con un
+        // indicador de "escribiendo…" (orbe pensando) proporcional a su largo.
+        const bubbles = splitBubbles(raw)
+        for (let i = 1; i < bubbles.length; i++) {
+          setOrbMode('thinking')
+          setMsgs((m) => [...m, { from: 'bot', text: '' }])
+          await wait(reduce ? 0 : typingDelayMs(bubbles[i]))
+          setOrbMode('speaking')
+          setMsgs((m) => {
+            const next = m.slice()
+            next[next.length - 1] = { from: 'bot', text: bubbles[i] }
             return next
           })
         }
@@ -115,7 +157,7 @@ export function ChatWidget() {
         setOrbMode('passive')
       }
     },
-    [t.chat.error],
+    [t.chat.error, wait, reduce],
   )
 
   const submit = () => {
@@ -201,7 +243,7 @@ export function ChatWidget() {
                         : 'max-w-[85%] whitespace-pre-wrap rounded-2xl rounded-bl-md border border-hairline bg-surface/70 px-4 py-2.5 text-sm leading-relaxed text-fg'
                     }
                   >
-                    {m.text || <TypingDots reduce={reduce} />}
+                    {m.text || <TypingDots reduce={reduce} label={t.chat.typing} />}
                   </div>
                 </div>
               ))}
@@ -239,9 +281,13 @@ export function ChatWidget() {
   )
 }
 
-function TypingDots({ reduce }: { reduce: boolean | null }) {
+function TypingDots({ reduce, label }: { reduce: boolean | null; label: string }) {
   return (
-    <span className="inline-flex items-center gap-1.5 align-middle">
+    <span
+      className="inline-flex items-center gap-1.5 align-middle"
+      role="status"
+      aria-label={label}
+    >
       {[0, 1, 2].map((i) => (
         <motion.span
           key={i}
