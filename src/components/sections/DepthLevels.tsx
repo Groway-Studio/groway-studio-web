@@ -106,6 +106,9 @@ export function DepthLevels() {
         <Reveal delay={0.1}>
           <p className="mt-5 font-mono text-sm text-accent-11">{t.depth.axis}</p>
         </Reveal>
+        <Reveal delay={0.15}>
+          <p className="mt-5 text-base leading-relaxed text-fg-muted">{t.depth.intro}</p>
+        </Reveal>
       </div>
 
       <div className="mt-14 grid gap-10 lg:mt-20 lg:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] lg:gap-16">

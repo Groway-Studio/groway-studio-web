@@ -6,6 +6,7 @@ import { DepthLevels } from '@/components/sections/DepthLevels'
 import { Method } from '@/components/sections/Method'
 import { Proof } from '@/components/sections/Proof'
 import { Startups } from '@/components/sections/Startups'
+import { Academy } from '@/components/sections/Academy'
 import { Contact } from '@/components/sections/Contact'
 import { ChatWidget } from '@/components/chat/ChatWidget'
 
@@ -26,6 +27,7 @@ function App() {
         <Method />
         <Proof />
         <Startups />
+        <Academy />
         <Contact />
       </main>
       <Footer />

@@ -7,26 +7,28 @@ export const en: Translations = {
     method: 'Method',
     proof: 'Proof',
     startups: 'Startups',
-    cta: 'Bring us your problem',
+    academy: 'Academy',
+    cta: 'Write to us',
   },
   hero: {
     overline: 'AI AGENCY · ENGINEERING + SCIENCE',
     h1: 'AI engineering and science that ships to production.',
     h1Highlight: 'ships to production',
     subhead:
-      "We integrate, build custom, train models, and research what doesn't exist yet. We don't start with the technology — we determine with you how much AI depth your problem actually needs.",
-    ctaPrimary: 'Bring us the hard problem',
-    ctaSecondary: 'Talk to an engineer',
+      "One discipline at four depths — integrate, build, train, or research. We don't start with the technology: we decide with you how far your challenge needs to go.",
+    ctaPrimary: 'Talk to an engineer',
+    ctaSecondary: 'How we work',
     scroll: 'Scroll',
   },
   approach: {
     eyebrow: 'THE APPROACH',
-    thesis: 'We start with the problem. The technology adapts.',
-    body: 'Most AI projects die as pilots: demos that impress and never reach production. We work the other way around. First we understand your problem and decide with you how much AI depth it needs — from an integration to research no one has solved yet — then we build it until it works for real.',
+    thesis: 'We start with the challenge. The technology adapts.',
+    body: 'Most AI projects stall as pilots that impress and never reach production. We work the other way around. First we understand your challenge and decide with you how much AI depth it needs — from an integration to research no one has solved yet — then we build it until it works for real.',
   },
   depth: {
     eyebrow: 'FOUR LEVELS OF DEPTH',
     heading: 'We pick the right depth. No less, no more.',
+    intro: "Integrating and building is engineering. Training and researching is science. For us it's one craft, at different depths.",
     axis: 'Integrate → Build → Adapt → Research',
     labels: {
       ideal: 'Ideal when',
@@ -55,7 +57,7 @@ export const en: Translations = {
         name: 'Engineer',
         tagline: "The product you need doesn't exist. We design and build it.",
         desc: 'Custom AI systems when no off-the-shelf tool fits your case: applications, multi-agent architectures and proprietary decision engines.',
-        ideal: 'Ideal when your problem is your own and no product covers it.',
+        ideal: 'Ideal when the challenge is your own and no product covers it.',
         tags: ['AI Applications', 'Multi-Agent', 'Decision Systems', 'Recommendation Engines', 'Computer Vision', 'Predictive Models'],
         deliverable: 'A proprietary system in production, with documented architecture.',
         time: '4–12 weeks',
@@ -95,7 +97,7 @@ export const en: Translations = {
     name: 'GROWY DEPTH™',
     heading: 'Four steps, whatever the depth.',
     steps: [
-      { title: 'Diagnose', body: 'We understand the problem and decide together which depth level it needs.' },
+      { title: 'Diagnose', body: 'We understand the challenge and decide together which depth level it needs.' },
       { title: 'Depth', body: 'We pick the level — integrate, build, train or research — and its scope.' },
       { title: 'Deploy', body: 'We ship it to production inside your systems. No orphan pilots.' },
       { title: 'Prove', body: "We measure it with evals on your real data. If it can't be measured, it doesn't ship." },
@@ -103,7 +105,7 @@ export const en: Translations = {
   },
   proof: {
     eyebrow: 'PROOF, NOT PROMISES',
-    heading: 'Production and numbers. Not demos.',
+    heading: 'Production and numbers, measured on your data.',
     fallback: 'Case studies available on request.',
     teamEyebrow: 'WHO BUILDS IT',
     teamBody:
@@ -143,10 +145,26 @@ export const en: Translations = {
     ],
     cta: 'Build my MVP',
   },
+  academy: {
+    eyebrow: 'GROWAY ACADEMY',
+    heading: 'Learn to build with AI, not just use it.',
+    body: 'The same engineering rigor we build client systems with, now to train you. Two paths, depending on who you are.',
+    tracks: [
+      {
+        title: 'Open courses',
+        desc: 'For professionals ready to go from using AI to building with it.',
+      },
+      {
+        title: 'Team training',
+        desc: "Tailored programs that bring AI into your team's daily work.",
+      },
+    ],
+    cta: 'Design your training plan',
+  },
   contact: {
     eyebrow: "LET'S TALK",
-    heading: 'Bring us the hard problem.',
-    subhead: 'No sales demos, no boring forms. Tell our assistant and we reply within 48h.',
+    heading: 'Tell us what challenge you’re facing.',
+    subhead: 'Tell LucIA, our assistant, and we reply within 48h.',
     privacy: 'We only use your data to reply to you.',
     emailNote: 'Prefer email?',
   },
@@ -154,6 +172,7 @@ export const en: Translations = {
     launcher: "Let's chat",
     title: 'LucIA',
     prefillMvp: "Hi! I'm interested in the startup MVP package.",
+    prefillAcademy: "Hi! I'm interested in Groway Academy. I'd like to train in…",
     greeting: "Hi 👋 I'm LucIA, from Groway. Tell me: what do you want to solve with AI?",
     error: 'Oops, something broke on my end. Email us directly at hola@groway.studio.',
     placeholder: 'Type your message…',

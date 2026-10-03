@@ -7,26 +7,28 @@ export const es: Translations = {
     method: 'Método',
     proof: 'Pruebas',
     startups: 'Startups',
-    cta: 'Tráenos tu problema',
+    academy: 'Academy',
+    cta: 'Escríbenos',
   },
   hero: {
     overline: 'AGENCIA DE IA · INGENIERÍA + CIENCIA',
     h1: 'Ingeniería y ciencia de IA que llega a producción.',
     h1Highlight: 'llega a producción',
     subhead:
-      'Integramos, construimos a medida, entrenamos modelos e investigamos lo que aún no existe. No empezamos por la tecnología: determinamos contigo cuánta profundidad de IA necesita tu problema.',
-    ctaPrimary: 'Tráenos el problema difícil',
-    ctaSecondary: 'Habla con un ingeniero',
+      'Una sola disciplina a cuatro profundidades —integrar, construir, entrenar o investigar—. No empezamos por la tecnología: decidimos contigo hasta dónde necesita llegar tu reto.',
+    ctaPrimary: 'Habla con un ingeniero',
+    ctaSecondary: 'Cómo trabajamos',
     scroll: 'Desliza',
   },
   approach: {
     eyebrow: 'EL ENFOQUE',
-    thesis: 'Empezamos por el problema. La tecnología se adapta.',
-    body: 'La mayoría de proyectos de IA mueren como pilotos: demos que impresionan y nunca entran en producción. Nosotros hacemos el trabajo al revés. Primero entendemos tu problema y decidimos contigo cuánta profundidad de IA necesita —de una integración a una investigación que nadie ha resuelto todavía— y luego lo construimos hasta que funciona en real.',
+    thesis: 'Empezamos por el reto. La tecnología se adapta.',
+    body: 'La mayoría de proyectos de IA se quedan en pilotos que impresionan y nunca entran en producción. Nosotros trabajamos al revés. Primero entendemos tu reto y decidimos contigo cuánta profundidad de IA necesita —de una integración a una investigación que nadie ha resuelto todavía— y luego lo construimos hasta que funciona en real.',
   },
   depth: {
     eyebrow: 'CUATRO NIVELES DE PROFUNDIDAD',
     heading: 'Elegimos la profundidad justa. Ni de menos, ni de más.',
+    intro: 'Integrar y construir es ingeniería. Entrenar e investigar es ciencia. Para nosotros es el mismo oficio, a distinta profundidad.',
     axis: 'Integrar → Construir → Adaptar → Investigar',
     labels: {
       ideal: 'Ideal cuando',
@@ -55,7 +57,7 @@ export const es: Translations = {
         name: 'Engineer',
         tagline: 'El producto que necesitas no existe. Lo diseñamos y lo construimos.',
         desc: 'Sistemas de IA a medida cuando ninguna herramienta del mercado resuelve tu caso: aplicaciones, arquitecturas multi-agente y motores de decisión propios.',
-        ideal: 'Ideal si tu problema es tuyo y no hay un producto que lo cubra.',
+        ideal: 'Ideal si el reto es tuyo y no hay un producto que lo cubra.',
         tags: ['AI Applications', 'Multi-Agent', 'Decision Systems', 'Recommendation Engines', 'Computer Vision', 'Predictive Models'],
         deliverable: 'Un sistema propietario en producción, con su arquitectura documentada.',
         time: '4–12 semanas',
@@ -95,7 +97,7 @@ export const es: Translations = {
     name: 'GROWY DEPTH™',
     heading: 'Cuatro pasos, sea cual sea la profundidad.',
     steps: [
-      { title: 'Diagnose', body: 'Entendemos el problema y decidimos juntos qué nivel de profundidad necesita.' },
+      { title: 'Diagnose', body: 'Entendemos el reto y decidimos juntos qué nivel de profundidad necesita.' },
       { title: 'Depth', body: 'Elegimos el nivel —integrar, construir, entrenar o investigar— y su alcance.' },
       { title: 'Deploy', body: 'Lo llevamos a producción dentro de tus sistemas. Sin pilotos huérfanos.' },
       { title: 'Prove', body: 'Lo medimos con evals sobre tus datos reales. Si no se puede medir, no se entrega.' },
@@ -103,7 +105,7 @@ export const es: Translations = {
   },
   proof: {
     eyebrow: 'PRUEBAS, NO PROMESAS',
-    heading: 'Producción y cifras. No demos.',
+    heading: 'Producción y cifras, medidas sobre tus datos.',
     fallback: 'Casos de estudio disponibles bajo petición.',
     teamEyebrow: 'QUIÉN LO CONSTRUYE',
     teamBody:
@@ -144,10 +146,26 @@ export const es: Translations = {
     ],
     cta: 'Construir mi MVP',
   },
+  academy: {
+    eyebrow: 'GROWAY ACADEMY',
+    heading: 'Aprende a construir con IA, no solo a usarla.',
+    body: 'El mismo rigor de ingeniería con el que construimos para clientes, ahora para formarte. Dos caminos, según quién eres.',
+    tracks: [
+      {
+        title: 'Cursos abiertos',
+        desc: 'Para profesionales que quieren pasar de usar IA a construir con ella.',
+      },
+      {
+        title: 'Formación para equipos',
+        desc: 'Programas a medida que llevan la IA al día a día de tu equipo.',
+      },
+    ],
+    cta: 'Diseña tu plan de formación',
+  },
   contact: {
     eyebrow: 'HABLEMOS',
-    heading: 'Tráenos el problema difícil.',
-    subhead: 'Sin demos de venta ni formularios aburridos. Cuéntaselo a nuestro asistente y te respondemos en menos de 48 h.',
+    heading: 'Cuéntanos qué reto enfrentas.',
+    subhead: 'Cuéntaselo a LucIA, nuestra asistente, y te respondemos en menos de 48 h.',
     privacy: 'Solo usamos tus datos para responderte.',
     emailNote: '¿Prefieres email?',
   },
@@ -155,6 +173,7 @@ export const es: Translations = {
     launcher: 'Charlemos',
     title: 'LucIA',
     prefillMvp: '¡Hola! Estoy interesado en el paquete MVP para startups.',
+    prefillAcademy: '¡Hola! Me interesa Groway Academy. Quiero capacitarme en…',
     greeting: 'Hola 👋 Soy LucIA, de Groway. Cuéntame: ¿qué quieres resolver con IA?',
     error: 'Ups, algo se cortó de mi lado. Escríbenos directo a hola@groway.studio.',
     placeholder: 'Escribe tu mensaje…',

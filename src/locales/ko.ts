@@ -7,26 +7,28 @@ export const ko: Translations = {
     method: '방법론',
     proof: '성과',
     startups: '스타트업',
-    cta: '문제를 들려주세요',
+    academy: 'Academy',
+    cta: '문의하기',
   },
   hero: {
     overline: 'AI 에이전시 · 엔지니어링 + 사이언스',
     h1: '프로덕션에 도달하는 AI 엔지니어링과 과학.',
     h1Highlight: '프로덕션',
     subhead:
-      '우리는 통합하고, 맞춤 개발하고, 모델을 학습시키고, 아직 존재하지 않는 것을 연구합니다. 기술이 아닌 문제에서 시작하여, 그 문제에 필요한 AI의 깊이를 함께 결정합니다.',
-    ctaPrimary: '어려운 문제를 가져오세요',
-    ctaSecondary: '엔지니어와 상담하기',
+      '하나의 분야, 네 가지 깊이 — 통합, 구축, 학습, 연구. 기술이 아니라, 당신의 과제가 어디까지 가야 하는지부터 함께 정합니다.',
+    ctaPrimary: '엔지니어와 상담하기',
+    ctaSecondary: '작업 방식 보기',
     scroll: '스크롤',
   },
   approach: {
     eyebrow: '우리의 접근',
-    thesis: '문제에서 시작합니다. 기술은 그에 맞춰집니다.',
-    body: '대부분의 AI 프로젝트는 파일럿으로 끝납니다. 인상적인 데모가 프로덕션에 도달하지 못한 채 사라지죠. 우리는 반대로 일합니다. 먼저 문제를 이해하고, 간단한 통합부터 아무도 풀지 못한 연구까지 어느 깊이의 AI가 필요한지 함께 결정한 뒤, 실제로 작동할 때까지 만들어냅니다.',
+    thesis: '과제에서 시작합니다. 기술은 그에 맞춰집니다.',
+    body: '대부분의 AI 프로젝트는 인상적이지만 프로덕션에 도달하지 못하는 파일럿으로 끝납니다. 우리는 반대로 일합니다. 먼저 과제를 이해하고, 간단한 통합부터 아무도 풀지 못한 연구까지 어느 깊이의 AI가 필요한지 함께 결정한 뒤, 실제로 작동할 때까지 만들어냅니다.',
   },
   depth: {
     eyebrow: '네 가지 깊이 레벨',
     heading: '딱 맞는 깊이를 선택합니다. 부족하지도, 과하지도 않게.',
+    intro: '통합하고 구축하는 것은 엔지니어링, 학습시키고 연구하는 것은 사이언스. 우리에게는 깊이만 다른 하나의 일입니다.',
     axis: 'Integrate → Build → Adapt → Research',
     labels: {
       ideal: '이런 경우에 적합',
@@ -55,7 +57,7 @@ export const ko: Translations = {
         name: 'Engineer',
         tagline: '필요한 제품이 존재하지 않는다면, 설계하고 만들어 드립니다.',
         desc: '시중의 어떤 도구도 맞지 않을 때의 맞춤 AI 시스템: 애플리케이션, 멀티 에이전트 아키텍처, 자체 의사결정 엔진.',
-        ideal: '문제가 고유해서 기존 제품으로 해결되지 않을 때 적합합니다.',
+        ideal: '과제가 고유해서 기존 제품으로 해결되지 않을 때 적합합니다.',
         tags: ['AI Applications', 'Multi-Agent', 'Decision Systems', 'Recommendation Engines', 'Computer Vision', 'Predictive Models'],
         deliverable: '문서화된 아키텍처와 함께 프로덕션에서 작동하는 자체 시스템.',
         time: '4–12주',
@@ -95,7 +97,7 @@ export const ko: Translations = {
     name: 'GROWY DEPTH™',
     heading: '어떤 깊이든, 네 단계로.',
     steps: [
-      { title: 'Diagnose', body: '문제를 이해하고 필요한 깊이 레벨을 함께 결정합니다.' },
+      { title: 'Diagnose', body: '과제를 이해하고 필요한 깊이 레벨을 함께 결정합니다.' },
       { title: 'Depth', body: '레벨(통합·구축·학습·연구)과 범위를 선택합니다.' },
       { title: 'Deploy', body: '귀사 시스템 안에서 프로덕션까지 배포합니다. 버려지는 파일럿은 없습니다.' },
       { title: 'Prove', body: '실제 데이터로 평가합니다. 측정할 수 없으면 배포하지 않습니다.' },
@@ -103,7 +105,7 @@ export const ko: Translations = {
   },
   proof: {
     eyebrow: '약속이 아닌 증명',
-    heading: '프로덕션과 숫자로 말합니다. 데모가 아니라.',
+    heading: '프로덕션과 숫자로 말합니다. 당신의 데이터로 측정한 결과입니다.',
     fallback: '케이스 스터디는 요청 시 제공됩니다.',
     teamEyebrow: '누가 만드는가',
     teamBody:
@@ -143,10 +145,26 @@ export const ko: Translations = {
     ],
     cta: '내 MVP 만들기',
   },
+  academy: {
+    eyebrow: 'GROWAY ACADEMY',
+    heading: 'AI를 쓰는 법이 아니라, 만드는 법을 배우세요.',
+    body: '고객 시스템을 만들 때와 같은 엔지니어링 수준으로, 이제 당신을 위한 교육을. 당신이 누구인지에 따라 두 가지 길.',
+    tracks: [
+      {
+        title: '공개 과정',
+        desc: 'AI를 쓰는 단계에서 직접 만드는 단계로 넘어가려는 전문가를 위해.',
+      },
+      {
+        title: '팀 교육',
+        desc: 'AI를 팀의 일상 업무로 들여오는 맞춤 프로그램.',
+      },
+    ],
+    cta: '교육 플랜 설계하기',
+  },
   contact: {
     eyebrow: '이야기해요',
-    heading: '어려운 문제를 가져오세요.',
-    subhead: '영업 데모도, 지루한 폼도 없습니다. 어시스턴트에게 말씀해 주시면 48시간 안에 답변드립니다.',
+    heading: '어떤 과제를 마주하고 계신가요?',
+    subhead: '어시스턴트 LucIA에게 말씀해 주시면 48시간 안에 답변드립니다.',
     privacy: '데이터는 답변 목적으로만 사용합니다.',
     emailNote: '이메일이 편하시면:',
   },
@@ -154,6 +172,7 @@ export const ko: Translations = {
     launcher: '대화하기',
     title: 'LucIA',
     prefillMvp: '안녕하세요! 스타트업 MVP 패키지에 관심이 있습니다.',
+    prefillAcademy: '안녕하세요! Groway Academy에 관심이 있어요. 이런 주제를 배우고 싶어요…',
     greeting: '안녕하세요 👋 Groway의 LucIA예요. AI로 무엇을 해결하고 싶으신가요?',
     error: '앗, 제 쪽에서 문제가 생겼어요. hola@groway.studio 로 직접 메일 주세요.',
     placeholder: '메시지를 입력하세요…',
