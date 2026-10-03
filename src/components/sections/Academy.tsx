@@ -10,8 +10,8 @@ export function Academy() {
   return (
     <Section id="academy" className="bg-bg">
       <div className="relative grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-        {/* Pitch */}
-        <div>
+        {/* Pitch: en escritorio pasa a la derecha para alternar con Startups. */}
+        <div className="lg:order-2">
           <Reveal>
             <Eyebrow>
               <span className="inline-flex items-center gap-2">
@@ -38,8 +38,8 @@ export function Academy() {
           </Reveal>
         </div>
 
-        {/* Two tracks */}
-        <div className="grid gap-5">
+        {/* Two tracks: en escritorio ocupa la izquierda. */}
+        <div className="grid gap-5 lg:order-1">
           {t.academy.tracks.map((track, i) => (
             <Reveal key={track.title} delay={0.1 + i * 0.05}>
               <div className="rounded-2xl border border-border bg-surface/50 p-7 transition-colors duration-300 hover:border-accent-9/40 hover:bg-surface">
