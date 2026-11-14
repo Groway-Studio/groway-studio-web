@@ -1,3 +1,4 @@
+import { EnvelopeSimple, WhatsappLogo } from '@phosphor-icons/react'
 import { LogoMark } from '@/components/layout/Logo'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { scrollToId } from '@/lib/scroll'
@@ -67,12 +68,24 @@ export function Footer() {
             <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-fg-subtle">
               {t.footer.contactTitle}
             </h3>
-            <a
-              href={`mailto:${t.footer.contactEmail}`}
-              className="relative mt-4 inline-block py-0.5 text-sm text-fg-muted transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-accent-11/70 after:transition-transform after:duration-200 after:ease-out hover:text-accent-11 hover:after:scale-x-100"
-            >
-              {t.footer.contactEmail}
-            </a>
+            <div className="mt-4 flex flex-col items-start gap-2.5">
+              <a
+                href="https://wa.me/12015342138"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 py-0.5 text-sm text-fg-muted transition-colors duration-200 hover:text-accent-11"
+              >
+                <WhatsappLogo size={18} aria-hidden="true" className="shrink-0" />
+                +1 201-534-2138
+              </a>
+              <a
+                href={`mailto:${t.footer.contactEmail}`}
+                className="relative inline-flex items-center gap-2 py-0.5 text-sm text-fg-muted transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-accent-11/70 after:transition-transform after:duration-200 after:ease-out hover:text-accent-11 hover:after:scale-x-100"
+              >
+                <EnvelopeSimple size={18} aria-hidden="true" className="shrink-0" />
+                {t.footer.contactEmail}
+              </a>
+            </div>
           </div>
         </div>
 
