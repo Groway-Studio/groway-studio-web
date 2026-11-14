@@ -165,7 +165,7 @@ export const es: Translations = {
   contact: {
     eyebrow: 'HABLEMOS',
     heading: 'Cuéntanos qué reto enfrentas.',
-    subhead: 'Cuéntaselo a LucIA, nuestra asistente, y te respondemos en menos de 48 h.',
+    subhead: 'Cuéntaselo a LucIA, nuestra asistente, y recibe una respuesta al instante.',
     privacy: 'Solo usamos tus datos para responderte.',
     emailNote: '¿Prefieres email?',
   },

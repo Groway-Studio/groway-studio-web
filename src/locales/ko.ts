@@ -164,7 +164,7 @@ export const ko: Translations = {
   contact: {
     eyebrow: '이야기해요',
     heading: '어떤 과제를 마주하고 계신가요?',
-    subhead: '어시스턴트 LucIA에게 말씀해 주시면 48시간 안에 답변드립니다.',
+    subhead: '어시스턴트 LucIA에게 말씀해 주시면 즉시 답변해 드립니다.',
     privacy: '데이터는 답변 목적으로만 사용합니다.',
     emailNote: '이메일이 편하시면:',
   },
