@@ -15,13 +15,24 @@ export function DepthLevels() {
   useEffect(() => {
     const rows = rowsRef.current?.querySelectorAll<HTMLElement>('[data-depth-level]')
     if (!rows) return
-    const observer = new IntersectionObserver(entries => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) setActive((entry.target as HTMLElement).dataset.depthLevel!)
-      }
-    }, { rootMargin: '-35% 0px -45% 0px', threshold: 0 })
-    rows.forEach(row => observer.observe(row))
-    return () => observer.disconnect()
+    const updateActive = () => {
+      const line = window.innerHeight * 0.45
+      let nearest = rows[0]
+      let distance = Infinity
+      rows.forEach(row => {
+        const rect = row.getBoundingClientRect()
+        const delta = rect.top > line ? rect.top - line : rect.bottom < line ? line - rect.bottom : 0
+        if (delta < distance) { nearest = row; distance = delta }
+      })
+      if (nearest) setActive(nearest.dataset.depthLevel!)
+    }
+    updateActive()
+    window.addEventListener('scroll', updateActive, { passive: true })
+    window.addEventListener('resize', updateActive)
+    return () => {
+      window.removeEventListener('scroll', updateActive)
+      window.removeEventListener('resize', updateActive)
+    }
   }, [t.depth.levels])
 
   return (
