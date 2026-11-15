@@ -1,4 +1,4 @@
-export type Language = 'en' | 'es'
+export type Language = 'en' | 'es' | 'ko'
 
 export interface DepthLevel {
   id: string
@@ -30,6 +30,7 @@ export interface Translations {
     method: string
     proof: string
     startups: string
+    academy: string
     cta: string
   }
   hero: {
@@ -83,23 +84,31 @@ export interface Translations {
     includes: string[]
     cta: string
   }
+  academy: {
+    eyebrow: string
+    heading: string
+    body: string
+    tracks: { title: string; desc: string }[]
+    cta: string
+  }
   contact: {
     eyebrow: string
     heading: string
     subhead: string
-    fields: {
-      name: string
-      email: string
-      company: string
-      depth: string
-      depthOptions: string[]
-      problem: string
-    }
-    submit: string
-    sending: string
     privacy: string
-    successToast: string
-    errorToast: string
+    emailNote: string
+  }
+  chat: {
+    launcher: string
+    title: string
+    prefillMvp: string
+    prefillAcademy: string
+    greeting: string
+    error: string
+    placeholder: string
+    send: string
+    close: string
+    typing: string
   }
   footer: {
     tagline: string

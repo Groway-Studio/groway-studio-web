@@ -7,13 +7,14 @@ export function Method() {
   const { t } = useLanguage()
 
   return (
-    <Section id="method" className="overflow-hidden bg-bg-inset">
-      {/* Dim vocabulary cloud drifting behind the method */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <KeywordCloud className="absolute inset-0 opacity-40" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_65%_at_38%_42%,oklch(0.08_0.01_40/0.88),transparent_85%)]" />
-        <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-bg-inset to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-bg-inset to-transparent" />
+    <Section id="method" className="overflow-hidden bg-inset-pool py-[clamp(8rem,18vh,15rem)]">
+      {/* Dim vocabulary cloud drifting behind the method; masked so rows dissolve at the edges */}
+      <div
+        className="pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_22%,black_78%,transparent)]"
+        aria-hidden="true"
+      >
+        <KeywordCloud className="absolute inset-0 opacity-30" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_65%_at_38%_42%,oklch(0.105_0.012_40/0.88),transparent_85%)]" />
       </div>
       <div className="relative max-w-2xl">
         <Reveal>

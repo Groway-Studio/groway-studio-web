@@ -12,6 +12,8 @@ export interface ContactPayload {
   /** Self-assessed depth level — internal routing signal for sales. */
   depth: string
   problem: string
+  /** Cloudflare Turnstile token; verified server-side before the lead lands. */
+  turnstileToken?: string | null
 }
 
 const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT
