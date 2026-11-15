@@ -25,70 +25,125 @@ export const es: Translations = {
     body: 'La mayoría de proyectos de IA mueren como pilotos: demos que impresionan y nunca entran en producción. Nosotros hacemos el trabajo al revés. Primero entendemos tu problema y decidimos contigo cuánta profundidad de IA necesita —de una integración a una investigación que nadie ha resuelto todavía— y luego lo construimos hasta que funciona en real.',
   },
   depth: {
-    eyebrow: 'CUATRO NIVELES DE PROFUNDIDAD',
-    heading: 'Elegimos la profundidad justa. Ni de menos, ni de más.',
-    axis: 'Integrar → Construir → Adaptar → Investigar',
-    labels: {
-      ideal: 'Ideal cuando',
-      deliverable: 'Entregable',
-      time: 'Tiempo',
-      start: 'Cómo empieza',
-      success: 'Cómo medimos éxito',
-    },
-    levels: [
+    "eyebrow": "CUATRO NIVELES DE PROFUNDIDAD",
+    "heading": "¿Qué quieres hacer con IA?",
+    "integrationLabel": "Agentes de IA conectados a tus herramientas. Las apps van cambiando para mostrar ejemplos de integraciones.",
+    "integrationCaption": "Tus herramientas favoritas. Tus propios sistemas. Todo conectado.",
+    "closingHeading": "No necesitas saber qué nivel elegir.",
+    "closingBody": "Cuéntanos qué quieres resolver y definimos contigo por dónde empezar.",
+    "cta": "Habla con un ingeniero",
+    "levels": [
       {
-        id: 'orchestrate',
-        num: '01',
-        name: 'Orchestrate',
-        tagline: 'Pon la IA a trabajar con lo que ya tienes.',
-        desc: 'Conectamos modelos existentes a tus datos, herramientas y flujos. Agentes y copilots que operan dentro de tu stack, no al lado.',
-        ideal: 'Ideal si tienes herramientas y datos, pero no resultados.',
-        tags: ['Agentes', 'Copilots', 'RAG', 'Automatizaciones', 'Integraciones', 'AI Workflows'],
-        deliverable: 'Un agente o flujo en producción, integrado a tus sistemas.',
-        time: '2–4 semanas',
-        start: 'Auditoría de datos y herramientas + un caso de uso priorizado.',
-        success: 'Evals sobre tus datos reales + reducción medida de trabajo manual.',
+        "id": "orchestrate",
+        "num": "01",
+        "name": "Orchestrate",
+        "title": "Integrar",
+        "desc": "Potenciamos las herramientas que usas todos los días con IA. Resultados más rápidos. Mayor precisión. Menos trabajo manual.",
+        "examples": []
       },
       {
-        id: 'engineer',
-        num: '02',
-        name: 'Engineer',
-        tagline: 'El producto que necesitas no existe. Lo diseñamos y lo construimos.',
-        desc: 'Sistemas de IA a medida cuando ninguna herramienta del mercado resuelve tu caso: aplicaciones, arquitecturas multi-agente y motores de decisión propios.',
-        ideal: 'Ideal si tu problema es tuyo y no hay un producto que lo cubra.',
-        tags: ['AI Applications', 'Multi-Agent', 'Decision Systems', 'Recommendation Engines', 'Computer Vision', 'Predictive Models'],
-        deliverable: 'Un sistema propietario en producción, con su arquitectura documentada.',
-        time: '4–12 semanas',
-        start: 'Diseño de arquitectura + prototipo funcional del núcleo.',
-        success: 'Suite de evals propia + métricas de producto acordadas contigo.',
+        "id": "engineer",
+        "num": "02",
+        "name": "Engineer",
+        "title": "Construir",
+        "desc": "Atiende clientes, impulsa tus ventas y agiliza tu operación con una solución de IA a medida.",
+        "examples": [
+          {
+            "title": "Chatbots conversacionales",
+            "body": "Resuelve consultas y atiende a tus clientes."
+          },
+          {
+            "title": "CRM con IA",
+            "body": "Prioriza prospectos y da seguimiento a tus ventas."
+          },
+          {
+            "title": "Buscadores de documentos",
+            "body": "Encuentra respuestas en la información de tu empresa."
+          },
+          {
+            "title": "Sistemas de recomendación",
+            "body": "Ofrece productos relevantes para cada cliente."
+          },
+          {
+            "title": "¿Tienes otra idea? La construimos contigo."
+          }
+        ],
+        "note": "Un producto propio que resuelve tu proceso, con IA integrada desde el diseño."
       },
       {
-        id: 'model',
-        num: '03',
-        name: 'Model',
-        tagline: 'Tu dominio sabe cosas que ningún modelo genérico sabe. Se las enseñamos.',
-        desc: 'Entrenamos, afinamos y optimizamos modelos sobre tu conocimiento propietario, hasta que rinden donde los genéricos fallan.',
-        ideal: 'Ideal si un modelo genérico se queda corto en tu vocabulario o tus datos.',
-        tags: ['Fine-tuning', 'Model Training', 'Embeddings', 'Distillation', 'Evaluation', 'Synthetic Data', 'Model Optimization'],
-        deliverable: 'Un modelo afinado y desplegable, con su informe de evaluación.',
-        time: '4–10 semanas',
-        start: 'Evaluación del modelo base sobre tus datos (baseline con cifras).',
-        success: 'Mejora medida frente al baseline en evals de tu dominio.',
+        "id": "model",
+        "num": "03",
+        "name": "Model",
+        "title": "Entrenar",
+        "desc": "Cuando los modelos existentes no son suficientes, creamos el tuyo. Lo entrenamos con tus datos y lo optimizamos para tu negocio.",
+        "examples": [
+          {
+            "title": "Visión por computador",
+            "body": "Analiza imágenes y video para reconocer objetos y detectar defectos."
+          },
+          {
+            "title": "Modelos de lenguaje",
+            "body": "Comprende documentos, consultas y vocabulario de tu sector."
+          },
+          {
+            "title": "Modelos de voz y audio",
+            "body": "Transcribe conversaciones e identifica sonidos y patrones acústicos."
+          },
+          {
+            "title": "Modelos predictivos",
+            "body": "Anticipa demanda, fallas y riesgos con tus datos históricos y señales en tiempo real."
+          },
+          {
+            "title": "Modelos multimodales",
+            "body": "Combina texto, imágenes, video y audio para resolver problemas más complejos."
+          },
+          {
+            "title": "¿Tu reto es otro? Creamos el modelo que necesitas."
+          }
+        ]
       },
       {
-        id: 'research',
-        num: '04',
-        name: 'Research',
-        tagline: '¿Y si la respuesta todavía no existe?',
-        desc: 'Investigación aplicada cuando el estado del arte no basta: arquitecturas nuevas, IA multimodal y aprendizaje por refuerzo dirigidos a un objetivo tuyo.',
-        ideal: 'Ideal si compites en algo que aún no está resuelto en la literatura.',
-        tags: ['Applied Research', 'Novel Architectures', 'Multimodal AI', 'RL', 'Computer Vision', 'NLP', 'Model Optimization'],
-        deliverable: 'Un resultado reproducible: prototipo, benchmark y reporte técnico fechado.',
-        time: 'Por fases, desde 6 semanas',
-        start: 'Definición del problema de investigación + revisión del estado del arte.',
-        success: 'Un benchmark que supera la línea base publicada, documentado y reproducible.',
-      },
+        "id": "research",
+        "num": "04",
+        "name": "Research",
+        "title": "Investigar",
+        "desc": "¿Tienes un reto que nadie ha resuelto? ¿Una idea que podría cambiar tu industria? Investigamos qué es posible y cómo hacerlo realidad.",
+        "examples": []
+      }
     ],
+    "researchCaption": "Y lo que aún está por descubrir.",
+    "researchTerms": [
+      "TinyML",
+      "Edge AI",
+      "Computer vision",
+      "Reinforcement learning",
+      "Robótica",
+      "NLP",
+      "GraphRAG",
+      "RAG",
+      "IA generativa",
+      "Voz y audio",
+      "Multimodal AI",
+      "Federated learning",
+      "World models",
+      "Deep learning",
+      "Agentes de IA",
+      "Time series",
+      "Anomaly detection",
+      "Embodied AI",
+      "Knowledge graphs",
+      "Neuro-symbolic AI",
+      "Simulación",
+      "Digital twins",
+      "Self-supervised learning",
+      "Causal AI",
+      "Diffusion models",
+      "SLAM",
+      "Aprendizaje continuo",
+      "Model compression",
+      "Synthetic data",
+      "Graph neural networks"
+    ]
   },
   method: {
     eyebrow: 'NUESTRO MÉTODO',

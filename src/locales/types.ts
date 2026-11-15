@@ -4,14 +4,10 @@ export interface DepthLevel {
   id: string
   num: string
   name: string
-  tagline: string
+  title: string
   desc: string
-  ideal: string
-  tags: string[]
-  deliverable: string
-  time: string
-  start: string
-  success: string
+  note?: string
+  examples: Array<{ title: string; body?: string }>
 }
 
 export interface MethodStep {
@@ -54,16 +50,16 @@ export interface Translations {
   depth: {
     eyebrow: string
     heading: string
-    axis: string
-    labels: {
-      ideal: string
-      deliverable: string
-      time: string
-      start: string
-      success: string
-    }
+    integrationLabel: string
+    integrationCaption: string
+    researchCaption: string
+    researchTerms: string[]
+    closingHeading: string
+    closingBody: string
+    cta: string
     levels: DepthLevel[]
   }
+
   method: {
     eyebrow: string
     name: string

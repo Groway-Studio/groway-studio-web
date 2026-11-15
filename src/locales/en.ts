@@ -25,70 +25,125 @@ export const en: Translations = {
     body: 'Most AI projects die as pilots: demos that impress and never reach production. We work the other way around. First we understand your problem and decide with you how much AI depth it needs — from an integration to research no one has solved yet — then we build it until it works for real.',
   },
   depth: {
-    eyebrow: 'FOUR LEVELS OF DEPTH',
-    heading: 'We pick the right depth. No less, no more.',
-    axis: 'Integrate → Build → Adapt → Research',
-    labels: {
-      ideal: 'Ideal when',
-      deliverable: 'Deliverable',
-      time: 'Timeline',
-      start: 'How it starts',
-      success: 'How we measure success',
-    },
-    levels: [
+    "eyebrow": "FOUR LEVELS OF DEPTH",
+    "heading": "What do you want to do with AI?",
+    "integrationLabel": "AI agents connected to your tools. The apps change to show examples of integrations.",
+    "integrationCaption": "Your favorite tools. Your own systems. All connected.",
+    "closingHeading": "You don’t need to pick a level.",
+    "closingBody": "Tell us what you want to solve. We’ll find the right starting point together.",
+    "cta": "Talk to an engineer",
+    "levels": [
       {
-        id: 'orchestrate',
-        num: '01',
-        name: 'Orchestrate',
-        tagline: 'Put AI to work with what you already have.',
-        desc: 'We connect existing models to your data, tools and workflows. Agents and copilots that operate inside your stack, not beside it.',
-        ideal: 'Ideal when you have the tools and data, but not the results.',
-        tags: ['Agents', 'Copilots', 'RAG', 'Automation', 'Integrations', 'AI Workflows'],
-        deliverable: 'A production agent or workflow, integrated into your systems.',
-        time: '2–4 weeks',
-        start: 'Data & tooling audit + one prioritized use case.',
-        success: 'Evals on your real data + measured reduction in manual work.',
+        "id": "orchestrate",
+        "num": "01",
+        "name": "Orchestrate",
+        "title": "Integrate",
+        "desc": "We power the tools you use every day with AI. Faster results. Greater accuracy. Less manual work.",
+        "examples": []
       },
       {
-        id: 'engineer',
-        num: '02',
-        name: 'Engineer',
-        tagline: "The product you need doesn't exist. We design and build it.",
-        desc: 'Custom AI systems when no off-the-shelf tool fits your case: applications, multi-agent architectures and proprietary decision engines.',
-        ideal: 'Ideal when your problem is your own and no product covers it.',
-        tags: ['AI Applications', 'Multi-Agent', 'Decision Systems', 'Recommendation Engines', 'Computer Vision', 'Predictive Models'],
-        deliverable: 'A proprietary system in production, with documented architecture.',
-        time: '4–12 weeks',
-        start: 'Architecture design + working prototype of the core.',
-        success: 'Custom eval suite + product metrics agreed with you.',
+        "id": "engineer",
+        "num": "02",
+        "name": "Engineer",
+        "title": "Build",
+        "desc": "Serve customers, grow sales and streamline operations with a custom AI solution.",
+        "examples": [
+          {
+            "title": "Conversational chatbots",
+            "body": "Answer questions and support your customers."
+          },
+          {
+            "title": "AI-powered CRM",
+            "body": "Prioritize leads and follow up on sales."
+          },
+          {
+            "title": "Document search",
+            "body": "Find answers in your company’s information."
+          },
+          {
+            "title": "Recommendation systems",
+            "body": "Offer relevant products to each customer."
+          },
+          {
+            "title": "Have another idea? Let’s build it together."
+          }
+        ],
+        "note": "Your own product, built around your process, with AI designed in from the start."
       },
       {
-        id: 'model',
-        num: '03',
-        name: 'Model',
-        tagline: 'Your domain knows things no generic model does. We teach them to it.',
-        desc: 'We train, fine-tune and optimize models on your proprietary knowledge, until they perform where generic ones fail.',
-        ideal: 'Ideal when a generic model falls short on your vocabulary or your data.',
-        tags: ['Fine-tuning', 'Model Training', 'Embeddings', 'Distillation', 'Evaluation', 'Synthetic Data', 'Model Optimization'],
-        deliverable: 'A fine-tuned, deployable model with its evaluation report.',
-        time: '4–10 weeks',
-        start: 'Baseline model evaluation on your data (numbers first).',
-        success: 'Measured lift over baseline on your domain evals.',
+        "id": "model",
+        "num": "03",
+        "name": "Model",
+        "title": "Train",
+        "desc": "When existing models aren’t enough, we create yours. Trained on your data. Optimized for your business.",
+        "examples": [
+          {
+            "title": "Computer vision",
+            "body": "Analyze images and video to recognize objects and detect defects."
+          },
+          {
+            "title": "Language models",
+            "body": "Understand documents, questions and your industry’s vocabulary."
+          },
+          {
+            "title": "Speech and audio models",
+            "body": "Transcribe conversations and identify sounds and acoustic patterns."
+          },
+          {
+            "title": "Predictive models",
+            "body": "Anticipate demand, failures and risks using historical data and real-time signals."
+          },
+          {
+            "title": "Multimodal models",
+            "body": "Combine text, images, video and audio to solve more complex problems."
+          },
+          {
+            "title": "A different challenge? We’ll build the model you need."
+          }
+        ]
       },
       {
-        id: 'research',
-        num: '04',
-        name: 'Research',
-        tagline: "What if the answer doesn't exist yet?",
-        desc: "Applied research when the state of the art isn't enough: novel architectures, multimodal AI and reinforcement learning aimed at a goal of yours.",
-        ideal: "Ideal when you compete on something the literature hasn't solved.",
-        tags: ['Applied Research', 'Novel Architectures', 'Multimodal AI', 'RL', 'Computer Vision', 'NLP', 'Model Optimization'],
-        deliverable: 'A reproducible result: prototype, benchmark and dated technical report.',
-        time: 'Phased, from 6 weeks',
-        start: 'Research problem definition + state-of-the-art review.',
-        success: 'A benchmark beating the published baseline, documented and reproducible.',
-      },
+        "id": "research",
+        "num": "04",
+        "name": "Research",
+        "title": "Research",
+        "desc": "Facing a challenge no one has solved? An idea that could change your industry? We research what’s possible and how to make it happen.",
+        "examples": []
+      }
     ],
+    "researchCaption": "And what’s still waiting to be discovered.",
+    "researchTerms": [
+      "TinyML",
+      "Edge AI",
+      "Computer vision",
+      "Reinforcement learning",
+      "Robotics",
+      "NLP",
+      "GraphRAG",
+      "RAG",
+      "Generative AI",
+      "Speech and audio",
+      "Multimodal AI",
+      "Federated learning",
+      "World models",
+      "Deep learning",
+      "AI agents",
+      "Time series",
+      "Anomaly detection",
+      "Embodied AI",
+      "Knowledge graphs",
+      "Neuro-symbolic AI",
+      "Simulation",
+      "Digital twins",
+      "Self-supervised learning",
+      "Causal AI",
+      "Diffusion models",
+      "SLAM",
+      "Continual learning",
+      "Model compression",
+      "Synthetic data",
+      "Graph neural networks"
+    ]
   },
   method: {
     eyebrow: 'OUR METHOD',
