@@ -22,17 +22,19 @@ export const es: Translations = {
   },
   approach: {
     eyebrow: 'EL ENFOQUE',
-    thesis: 'Empezamos por el reto. La tecnología se adapta.',
-    body: 'La mayoría de proyectos de IA se quedan en pilotos que impresionan y nunca entran en producción. Nosotros trabajamos al revés. Primero entendemos tu reto y decidimos contigo cuánta profundidad de IA necesita —de una integración a una investigación que nadie ha resuelto todavía— y luego lo construimos hasta que funciona en real.',
+    thesis: 'Tu negocio tiene planes. La IA puede llevarlos más lejos.',
+    thesisLines: ['Tu negocio tiene planes.', 'La IA puede llevarlos más lejos.'],
+    body: 'Cada negocio tiene un reto distinto. A veces, el salto está en potenciar lo que ya funciona. Otras, en crear algo que todavía no existe. Combinamos ingeniería y ciencia para que tu negocio dé su próximo gran paso.',
   },
   depth: {
     "eyebrow": "CUATRO NIVELES DE PROFUNDIDAD",
-    "heading": "¿Qué quieres hacer con IA?",
+    "heading": 'Cuatro formas de poner la IA a trabajar para ti.',
+    intro: 'Con IA, tu equipo puede ganar tiempo, tu próxima idea puede abrir un mercado y tus datos pueden convertirse en una ventaja propia. En Groway Studio combinamos ingeniería y ciencia para hacer esto posible, con el enfoque que tu negocio necesita. Y si el camino aún no existe, lo exploramos contigo.',
     "integrationLabel": "Agentes de IA conectados a tus herramientas. Las apps van cambiando para mostrar ejemplos de integraciones.",
     "integrationCaption": "Tus herramientas favoritas. Tus propios sistemas. Todo conectado.",
-    "closingHeading": "No necesitas saber qué nivel elegir.",
-    "closingBody": "Cuéntanos qué quieres resolver y definimos contigo por dónde empezar.",
-    "cta": "Habla con un ingeniero",
+    "closingHeading": 'Cuéntanos qué tienes en mente.',
+    "closingBody": 'Y te mostraremos la combinación de ingeniería y ciencia que necesitas para pasar de la idea a la acción.',
+    "cta": 'Habla con un ingeniero',
     "levels": [
       {
         "id": "orchestrate",
@@ -151,10 +153,22 @@ export const es: Translations = {
     name: 'GROWY DEPTH™',
     heading: 'Cuatro pasos, sea cual sea la profundidad.',
     steps: [
-      { title: 'Diagnose', body: 'Entendemos el reto y decidimos juntos qué nivel de profundidad necesita.' },
-      { title: 'Depth', body: 'Elegimos el nivel —integrar, construir, entrenar o investigar— y su alcance.' },
-      { title: 'Deploy', body: 'Lo llevamos a producción dentro de tus sistemas. Sin pilotos huérfanos.' },
-      { title: 'Prove', body: 'Lo medimos con evals sobre tus datos reales. Si no se puede medir, no se entrega.' },
+      {
+        title: 'Diagnóstico',
+        body: 'Identificamos dónde la IA puede generar más valor para tu negocio y trazamos el camino para lograrlo. Con la tecnología justa para lo que necesitas.',
+      },
+      {
+        title: 'Construcción',
+        body: 'Nuestros ingenieros y científicos trabajan en ciclos cortos, para que veas avances, pruebes la solución y obtengas valor desde las primeras entregas.',
+      },
+      {
+        title: 'Medición',
+        body: 'Nos aseguramos de que la solución te acerque a los resultados que buscas. Si no lo hace, volvemos a la mesa de diseño.',
+      },
+      {
+        title: 'Optimización',
+        body: 'Nos aseguramos de que tus resultados se sostengan en el tiempo. Más velocidad. Menor costo. Mayor rendimiento.',
+      },
     ],
   },
   proof: {
@@ -189,12 +203,13 @@ export const es: Translations = {
   },
   startups: {
     eyebrow: 'CARRIL DE VELOCIDAD',
-    heading: 'Para startups AI-native: donde la IA es el producto.',
+    heading: 'Para startups AI-native: de la idea al mercado a toda velocidad.',
+    headingLines: ['Para startups AI-native:', 'de la idea al mercado', 'a toda velocidad.'],
     body: 'Si tu ventaja competitiva es el modelo, el agente o los datos, somos tu equipo de ingeniería fundacional. De idea a MVP en semanas, listo para salir a validar con usuarios e inversores reales.',
     packageTitle: 'Paquete MVP',
     packageTime: '2–4 semanas',
     includes: [
-      'Tu MVP completo: de la IA al demo de ventas.',
+      'Tu MVP completo: de la idea a la demo de ventas.',
       'Acompañamiento de negocio y de ingeniería.',
       'Paquete de horas canjeables por desarrollo post-lanzamiento.',
     ],

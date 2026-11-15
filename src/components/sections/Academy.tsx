@@ -31,7 +31,7 @@ export function Academy() {
           <Reveal delay={0.15}>
             <button
               onClick={() => openChat(t.chat.prefillAcademy)}
-              className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-accent-9 px-7 py-4 text-base font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 hover:glow-orange active:scale-[0.98]"
+              className="cta cta-primary mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-accent-9 px-7 py-4 text-base font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 hover:glow-orange active:scale-[0.98]"
             >
               {t.academy.cta}
             </button>

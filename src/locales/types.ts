@@ -46,11 +46,13 @@ export interface Translations {
   approach: {
     eyebrow: string
     thesis: string
+    thesisLines: string[]
     body: string
   }
   depth: {
     eyebrow: string
     heading: string
+    intro: string
     integrationLabel: string
     integrationCaption: string
     researchCaption: string
@@ -78,6 +80,7 @@ export interface Translations {
   startups: {
     eyebrow: string
     heading: string
+    headingLines: string[]
     body: string
     packageTitle: string
     packageTime: string

@@ -1,0 +1,215 @@
+/* Claroscuro: dark opening, warm light content. */
+.groway-site { background: #faf8f5; }
+
+.groway-site main > section:not(:first-child) {
+  --bg: #faf8f5;
+  --bg-inset: #f2ede6;
+  --surface: #f4efe9;
+  --surface-2: #eee5db;
+  --fg: #2b211a;
+  --fg-muted: #69594c;
+  --fg-subtle: #79695b;
+  --hairline: #dfd4c8;
+  --border: #ddcfc0;
+  --input: #ddcfc0;
+  --accent-9: #ef7433;
+  --accent-10: #dd6426;
+  --accent-11: #a5461a;
+  --crest: #c86f32;
+  --background: var(--bg);
+  --foreground: var(--fg);
+  --muted: var(--surface-2);
+  --muted-foreground: var(--fg-muted);
+  --card: var(--surface);
+  --card-foreground: var(--fg);
+  --color-bg: var(--bg);
+  --color-bg-inset: var(--bg-inset);
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-border: var(--border);
+  --color-hairline: var(--hairline);
+  --color-accent-9: var(--accent-9);
+  --color-accent-10: var(--accent-10);
+  --color-accent-11: var(--accent-11);
+  --color-crest: var(--crest);
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+/* The dark opening remains the focal moment; the rest breathes. */
+.groway-site header {
+  background-color: rgb(13 11 9 / 96%);
+  border-bottom-color: rgb(255 255 255 / 8%);
+}
+
+.groway-site #approach {
+  --bg: #f4eee6;
+  border-top: 1px solid #dfc6ac;
+}
+.groway-site #approach h2 {
+  font-size: clamp(1.8rem, 4.2vw, 3.3rem);
+  line-height: 1.15;
+}
+.groway-site #approach .approach-line { display: block; }
+.groway-site #approach .approach-line + .approach-line {
+  margin-top: 0.12em;
+  color: #a5461a;
+}
+.groway-site #approach div.pointer-events-none,
+.groway-site #contact div.pointer-events-none {
+  display: none;
+}
+.groway-site #approach canvas,
+.groway-site #contact canvas { opacity: 0.14; }
+
+.groway-site #depth { --bg: #fcfaf7; }
+.groway-site .depth-intro {
+  margin-top: 24px;
+  max-width: 68ch;
+  color: #69594c;
+  font-size: 18px;
+  line-height: 1.7;
+}
+.groway-site .integration-cloud-app img { filter: none; opacity: 0.86; }
+.groway-site .integration-cloud-app {
+  background: linear-gradient(135deg, #f0e9e0, #fcfaf7);
+}
+.groway-site .integration-cloud-agent { box-shadow: 0 0 24px rgb(190 91 35 / 7%); }
+
+.groway-site #method {
+  --bg: #eee6dc;
+  --surface: #f7f2eb;
+  background-image: none;
+}
+.groway-site #method div[class*="radial-gradient"] {
+  background: radial-gradient(ellipse 70% 80% at 30% 50%, #eee6dc 15%, transparent 95%);
+}
+.groway-site #method .text-gradient {
+  background-image: linear-gradient(135deg, #a94419, #bd783a);
+}
+.groway-site #proof { --bg: #fcfaf7; }
+.groway-site #proof .text-gradient {
+  background-image: linear-gradient(135deg, #a94419, #bd783a);
+}
+
+/* A restrained clay/peach interval gives the startup offer its own place. */
+.groway-site #startups {
+  --bg: #fff5ec;
+  --bg-inset: #fff5ec;
+  --surface: #fff7ed;
+  --surface-2: #ead2b7;
+  --fg: #38251b;
+  --fg-muted: #6b4d39;
+  --fg-subtle: #7b5b46;
+  --hairline: #dcc0a2;
+  --border: #d8b99a;
+  --accent-11: #91401c;
+  isolation: isolate;
+  overflow: hidden;
+  padding-top: 88px;
+  padding-bottom: 160px;
+  background-image: linear-gradient(120deg, #fffaf5 15%, #fff2e6 65%, #f6c8a7);
+  border-top: 1px solid #e6d1bb;
+  border-bottom: 1px solid #e6d1bb;
+}
+.groway-site .startup-speed-layer {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 70% 45% at 80% 85%, rgb(255 162 75 / 12%), transparent 80%);
+}
+.groway-site #startups .gradient-glow { display: none; }
+.groway-site #startups h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-style: italic;
+  line-height: 1.06;
+  max-width: 15ch;
+  letter-spacing: -0.045em;
+}
+.groway-site #startups .speed-headline { display:block; }
+.groway-site #startups .speed-headline:first-child {
+  white-space: nowrap;
+  font-size: clamp(1.45rem, 2.5vw, 2.15rem);
+}
+.groway-site #startups .speed-headline:nth-child(2) { color:#d95400; }
+.groway-site #startups .glow-orange {
+  background: rgb(255 250 244 / 88%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(255 255 255 / 90%);
+  box-shadow: 0 18px 60px rgb(157 69 20 / 9%);
+  transform: perspective(1000px) rotateY(-5deg) rotateZ(-1.5deg);
+}
+/* Shared CTA system: primary, secondary and compact navigation size. */
+.groway-site .cta {
+  border-radius: 999px;
+  min-height: 48px;
+  padding: 13px 26px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 600;
+  box-shadow: none;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+.groway-site .cta-primary {
+  color: #fff;
+  background: linear-gradient(110deg, #ce4800, #b93b00);
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+.groway-site .cta-primary:hover {
+  background: linear-gradient(110deg, #bd4000, #a93300);
+  box-shadow: none;
+}
+.groway-site .cta-secondary {
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+.groway-site .cta-secondary:hover {
+  color: var(--accent-11);
+  border-color: var(--accent-11);
+  background: var(--surface);
+}
+.groway-site header .cta {
+  min-height: 40px;
+  padding: 9px 18px;
+  font-size: 14px;
+}
+.groway-site .cta:active,
+.groway-site .cta-secondary:active { transform: none; }
+.groway-site button:focus-visible {
+  outline: 2px solid #d95400;
+  outline-offset: 4px;
+}
+.groway-site button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+@media(max-width:767px) {
+  .groway-site #startups .speed-headline:first-child {
+    font-size: clamp(1.15rem, 4.8vw, 2rem);
+  }
+  .groway-site #startups { padding:64px 0 140px; }
+  .groway-site #startups h2 { max-width:20ch; }
+  .groway-site #startups .glow-orange { transform:none; }
+  .groway-site .startup-speed-layer { background-size:auto 75%; background-position:65% bottom; }
+}
+.groway-site #academy { --bg: #f6f2ec; background-image: none; }
+.groway-site #contact { --bg: #fcfaf7; }
+
+.groway-site main > section:not(:first-child) ::selection {
+  background: #f4c9a5;
+  color: #392318;
+}
+.groway-site main > section:not(:first-child) :focus-visible {
+  outline-color: #b04d1e;
+}

@@ -42,6 +42,7 @@ export function DepthLevels() {
         <h2 className="mt-5 max-w-2xl text-[clamp(2rem,4vw,3.25rem)] font-bold leading-[1.05] tracking-[-0.02em] text-fg">
           {t.depth.heading}
         </h2>
+        <p className="depth-intro">{t.depth.intro}</p>
       </Reveal>
       <div className="mt-12 grid gap-8 lg:grid-cols-[8rem_minmax(0,1fr)]">
         <nav aria-label={t.depth.eyebrow} className="hidden lg:block">
@@ -107,7 +108,7 @@ export function DepthLevels() {
           <p className="font-medium text-fg">{t.depth.closingHeading}</p>
           <p className="mt-2 text-sm text-fg-muted">{t.depth.closingBody}</p>
         </div>
-        <button type="button" onClick={() => scrollToId('contact')} className="inline-flex items-center gap-2 rounded-lg border border-accent-9/40 bg-surface px-5 py-3 text-sm font-semibold text-accent-11 transition-colors hover:border-accent-9 hover:bg-surface-2">
+        <button type="button" onClick={() => scrollToId('contact')} className="cta cta-secondary inline-flex items-center gap-2 rounded-lg border border-accent-9/40 bg-surface px-5 py-3 text-sm font-semibold text-accent-11 transition-colors hover:border-accent-9 hover:bg-surface-2">
           {t.depth.cta}<ArrowRight aria-hidden="true" weight="bold" />
         </button>
       </Reveal>

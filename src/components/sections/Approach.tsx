@@ -17,7 +17,7 @@ export function Approach() {
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-6 text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.05] tracking-[-0.02em] text-fg">
-            {t.approach.thesis}
+            {t.approach.thesisLines.map((line, index) => <span key={line} className="approach-line">{index > 0 && ' '}{line}</span>)}
           </h2>
         </Reveal>
         <Reveal delay={0.1}>

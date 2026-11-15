@@ -76,7 +76,7 @@ export function Navigation() {
           </span>
         </button>
 
-        <div className="hidden items-center gap-7 md:flex">
+        <div className="hidden items-center gap-7 lg:flex">
           {NAV_IDS.map((id) => (
             <button
               key={id}
@@ -92,14 +92,14 @@ export function Navigation() {
           <LangToggle />
           <button
             onClick={() => go('contact')}
-            className="hidden rounded-lg bg-accent-9 px-4 py-2 text-sm font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 hover:glow-orange-soft active:scale-[0.98] sm:inline-flex"
+            className="cta cta-primary hidden rounded-lg bg-accent-9 px-4 py-2 text-sm font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 hover:glow-orange-soft active:scale-[0.98] sm:inline-flex"
           >
             {t.nav.cta}
           </button>
           <button
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Menu"
-            className="-m-2 rounded-md p-2 text-fg transition-colors duration-200 hover:text-accent-11 md:hidden"
+            className="-m-2 rounded-md p-2 text-fg transition-colors duration-200 hover:text-accent-11 lg:hidden"
           >
             {menuOpen ? <X size={24} weight="bold" /> : <List size={24} weight="bold" />}
           </button>
@@ -107,7 +107,7 @@ export function Navigation() {
       </nav>
 
       {menuOpen && (
-        <div className="border-t border-hairline bg-bg/95 backdrop-blur-md md:hidden">
+        <div className="border-t border-hairline bg-bg/95 backdrop-blur-md lg:hidden">
           <div className="space-y-1 px-6 py-4">
             {NAV_IDS.map((id) => (
               <button
@@ -120,7 +120,7 @@ export function Navigation() {
             ))}
             <button
               onClick={() => go('contact')}
-              className="mt-2 block w-full rounded-lg bg-accent-9 px-4 py-3 text-center text-sm font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 active:scale-[0.99]"
+              className="cta cta-primary mt-2 block w-full rounded-lg bg-accent-9 px-4 py-3 text-center text-sm font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 active:scale-[0.99]"
             >
               {t.nav.cta}
             </button>

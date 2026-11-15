@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react'
+import { mountStartupSpeed } from '@/components/visuals/startupSpeed'
 import { Check, Lightning } from '@phosphor-icons/react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { Section, Eyebrow } from '@/components/layout/Section'
@@ -6,9 +8,14 @@ import { openChat } from '@/components/chat/ChatWidget'
 
 export function Startups() {
   const { t } = useLanguage()
+  const speedRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (speedRef.current) return mountStartupSpeed(speedRef.current)
+  }, [])
 
   return (
     <Section id="startups" className="bg-inset-pool">
+      <div ref={speedRef} className="startup-speed-layer" aria-hidden="true" />
       <div className="gradient-glow pointer-events-none absolute inset-x-0 top-0 h-1/2" />
       <div className="relative grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         {/* Pitch */}
@@ -23,7 +30,7 @@ export function Startups() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mt-5 text-[clamp(1.9rem,3.6vw,3rem)] font-bold leading-[1.08] tracking-[-0.02em] text-fg">
-              {t.startups.heading}
+              {t.startups.headingLines.map((line, index) => <span key={line} className="speed-headline">{index > 0 && ' '}{line}</span>)}
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -32,7 +39,7 @@ export function Startups() {
           <Reveal delay={0.15}>
             <button
               onClick={() => openChat(t.chat.prefillMvp)}
-              className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-accent-9 px-7 py-4 text-base font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 hover:glow-orange active:scale-[0.98]"
+              className="cta cta-primary mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-accent-9 px-7 py-4 text-base font-semibold text-[oklch(0.14_0.02_40)] transition-all duration-200 ease-out hover:bg-accent-10 hover:glow-orange active:scale-[0.98]"
             >
               {t.startups.cta}
             </button>

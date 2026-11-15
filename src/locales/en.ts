@@ -21,17 +21,19 @@ export const en: Translations = {
     scroll: 'Scroll',
   },
   approach: {
+    thesisLines: ["Your business has plans.", "AI can take them further."],
     eyebrow: 'THE APPROACH',
-    thesis: 'We start with the challenge. The technology adapts.',
-    body: 'Most AI projects stall as pilots that impress and never reach production. We work the other way around. First we understand your challenge and decide with you how much AI depth it needs — from an integration to research no one has solved yet — then we build it until it works for real.',
+    thesis: "Your business has plans. AI can take them further.",
+    body: "Every business faces a different challenge. Sometimes, the next step is to strengthen what already works. Other times, it means creating something that does not exist yet. We combine engineering and science to help your business take its next big step.",
   },
   depth: {
+    intro: "With AI, your team can save time, your next idea can open a market, and your data can become a competitive advantage. At Groway Studio, we combine engineering and science to make this possible, with the approach your business needs. And if the path does not exist yet, we explore it with you.",
     "eyebrow": "FOUR LEVELS OF DEPTH",
-    "heading": "What do you want to do with AI?",
+    "heading": "Four ways to put AI to work for you.",
     "integrationLabel": "AI agents connected to your tools. The apps change to show examples of integrations.",
     "integrationCaption": "Your favorite tools. Your own systems. All connected.",
-    "closingHeading": "You don’t need to pick a level.",
-    "closingBody": "Tell us what you want to solve. We’ll find the right starting point together.",
+    "closingHeading": "Tell us what you have in mind.",
+    "closingBody": "We will show you the combination of engineering and science you need to move from idea to action.",
     "cta": "Talk to an engineer",
     "levels": [
       {
@@ -151,10 +153,10 @@ export const en: Translations = {
     name: 'GROWY DEPTH™',
     heading: 'Four steps, whatever the depth.',
     steps: [
-      { title: 'Diagnose', body: 'We understand the challenge and decide together which depth level it needs.' },
-      { title: 'Depth', body: 'We pick the level — integrate, build, train or research — and its scope.' },
-      { title: 'Deploy', body: 'We ship it to production inside your systems. No orphan pilots.' },
-      { title: 'Prove', body: "We measure it with evals on your real data. If it can't be measured, it doesn't ship." },
+      { title: "Diagnosis", body: "We identify where AI can create the most value for your business and map the way forward. With the right amount of technology for what you need." },
+      { title: "Construction", body: "Our engineers and scientists work in short cycles so you can see progress, test the solution and gain value from the first deliveries." },
+      { title: "Measurement", body: "We make sure the solution brings you closer to the results you want. If it does not, we go back to the drawing board." },
+      { title: "Optimization", body: "We make sure your results last. More speed. Lower cost. Better performance." },
     ],
   },
   proof: {
@@ -187,8 +189,9 @@ export const en: Translations = {
     ],
   },
   startups: {
+    headingLines: ["For AI-native startups:", "from idea to market", "at full speed."],
     eyebrow: 'THE FAST LANE',
-    heading: 'For AI-native startups — where AI is the product.',
+    heading: "For AI-native startups: from idea to market at full speed.",
     body: "If your competitive edge is the model, the agent or the data, we're your founding engineering team. From idea to MVP in weeks, ready to validate with real users and investors.",
     packageTitle: 'MVP Package',
     packageTime: '2–4 weeks',
