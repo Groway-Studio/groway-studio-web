@@ -3,7 +3,10 @@ import { Section, Eyebrow } from '@/components/layout/Section'
 import { Reveal } from '@/components/ui/Reveal'
 import type { ProofCase } from '@/locales/types'
 
-/** A metric is real (publishable) only if the client filled it with an actual number. */
+// Keep case studies hidden until their figures and publication are confirmed.
+const SHOW_CASE_STUDIES = false
+
+/** Detect incomplete draft metrics; this does not validate a case study. */
 function isPlaceholder(metric: string) {
   return !metric || metric.includes('[')
 }
@@ -44,6 +47,7 @@ export function Proof() {
 
   return (
     <Section id="proof" className="bg-bg">
+      {SHOW_CASE_STUDIES && (<>
       <div className="max-w-2xl">
         <Reveal>
           <Eyebrow>{t.proof.eyebrow}</Eyebrow>
@@ -67,9 +71,11 @@ export function Proof() {
         <p className="mt-6 text-sm text-fg-subtle">{t.proof.fallback}</p>
       )}
 
+      </>)}
+
       {/* Team credential — anchors the science with real people */}
       <Reveal delay={0.1}>
-        <div className="mt-14 rounded-2xl border border-hairline bg-surface/30 p-8">
+        <div className="rounded-2xl border border-hairline bg-surface/30 p-8">
           <p className="font-mono text-[0.8125rem] uppercase tracking-[0.18em] text-accent-11">
             {t.proof.teamEyebrow}
           </p>

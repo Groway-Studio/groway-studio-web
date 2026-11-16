@@ -5,7 +5,7 @@ export const es: Translations = {
     approach: 'Enfoque',
     depth: 'Niveles',
     method: 'Método',
-    proof: 'Pruebas',
+    proof: 'Equipo',
     startups: 'Startups',
     academy: 'Academy',
     cta: 'Escríbenos',

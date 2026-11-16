@@ -5,7 +5,7 @@ export const ko: Translations = {
     approach: '접근 방식',
     depth: '레벨',
     method: '방법론',
-    proof: '성과',
+    proof: '팀',
     startups: '스타트업',
     academy: 'Academy',
     cta: '문의하기',
