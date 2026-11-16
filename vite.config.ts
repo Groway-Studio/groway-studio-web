@@ -12,6 +12,15 @@ export default defineConfig({
       '@': resolve(import.meta.dirname, 'src'),
     },
   },
+  server: {
+    proxy: {
+      '/api/chat': {
+        target: 'https://api.groway.studio',
+        changeOrigin: true,
+        rewrite: () => '/public/chat',
+      },
+    },
+  },
   build: {
     outDir: 'dist',
     sourcemap: false,
