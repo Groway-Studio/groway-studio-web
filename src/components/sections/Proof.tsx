@@ -12,7 +12,7 @@ function isPlaceholder(metric: string) {
 }
 
 /* Template-chip label lives here (not in locales) because it's scaffolding, not final copy. */
-const pendingLabel = { es: 'métrica pendiente', en: 'metric pending' }
+const pendingLabel = { es: 'métrica pendiente', en: 'metric pending', pt: 'métrica pendente' }
 
 function CaseCard({ c, template, chip }: { c: ProofCase; template: boolean; chip: string }) {
   return (

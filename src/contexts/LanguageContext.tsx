@@ -13,13 +13,13 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const getBrowserLanguage = (): Language => {
   const browserLang = navigator.language.toLowerCase();
   if (browserLang.startsWith('es')) return 'es';
-  if (browserLang.startsWith('ko')) return 'ko';
+  if (browserLang.startsWith('pt')) return 'pt';
   return 'en';
 };
 
 const getStoredLanguage = (): Language => {
-  const stored = localStorage.getItem('language') as Language;
-  return stored || getBrowserLanguage();
+  const stored = localStorage.getItem('language');
+  return stored === 'es' || stored === 'en' || stored === 'pt' ? stored : getBrowserLanguage();
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
@@ -27,7 +27,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     localStorage.setItem('language', language);
-    document.documentElement.lang = language;
+    document.documentElement.lang = language === 'pt' ? 'pt-BR' : language;
     const active = translations[language];
     document.title = active.meta.title;
     const desc = document.querySelector('meta[name="description"]');

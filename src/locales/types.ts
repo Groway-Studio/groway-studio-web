@@ -1,4 +1,4 @@
-export type Language = 'en' | 'es' | 'ko'
+export type Language = 'en' | 'es' | 'pt'
 
 export interface DepthLevel {
   id: string
