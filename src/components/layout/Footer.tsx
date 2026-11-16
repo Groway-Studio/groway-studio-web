@@ -20,7 +20,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-2.5">
-              <LogoMark className="h-7 w-auto text-accent-9" />
+              <LogoMark className="h-7 w-auto text-white" />
               <span className="text-lg font-semibold tracking-tight text-fg">
                 groway<span className="text-fg-muted">.studio</span>
               </span>
