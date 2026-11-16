@@ -11,11 +11,11 @@ export const es: Translations = {
     cta: 'Escríbenos',
   },
   hero: {
-    overline: 'AGENCIA DE IA · INGENIERÍA + CIENCIA',
-    h1: 'Ingeniería y ciencia de IA que llega a producción.',
-    h1Highlight: 'llega a producción',
+    overline: "POTENCIA TU EMPRESA CON INTELIGENCIA ARTIFICIAL",
+    h1: "Tu equipo puede lograr más con la inteligencia artificial de su lado.",
+    h1Highlight: "con la inteligencia artificial de su lado.",
     subhead:
-      'Una sola disciplina a cuatro profundidades —integrar, construir, entrenar o investigar—. No empezamos por la tecnología: decidimos contigo hasta dónde necesita llegar tu reto.',
+      "Gana tiempo. Decide mejor. Logra más con los recursos que ya tienes.",
     ctaPrimary: 'Habla con un ingeniero',
     ctaSecondary: 'Cómo trabajamos',
     scroll: 'Desliza',

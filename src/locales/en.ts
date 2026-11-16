@@ -11,11 +11,11 @@ export const en: Translations = {
     cta: 'Write to us',
   },
   hero: {
-    overline: 'AI AGENCY · ENGINEERING + SCIENCE',
-    h1: 'AI engineering and science that ships to production.',
-    h1Highlight: 'ships to production',
+    overline: "EMPOWER YOUR BUSINESS WITH ARTIFICIAL INTELLIGENCE",
+    h1: "Your team can achieve more with artificial intelligence on its side.",
+    h1Highlight: "with artificial intelligence on its side.",
     subhead:
-      "One discipline at four depths — integrate, build, train, or research. We don't start with the technology: we decide with you how far your challenge needs to go.",
+      "Save time. Make better decisions. Achieve more with the resources you already have.",
     ctaPrimary: 'Talk to an engineer',
     ctaSecondary: 'How we work',
     scroll: 'Scroll',
