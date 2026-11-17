@@ -1,5 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext'
-import { Section, Eyebrow } from '@/components/layout/Section'
+import { Section } from '@/components/layout/Section'
 import { Reveal } from '@/components/ui/Reveal'
 import { DotField } from '@/components/visuals/DotField'
 
@@ -13,10 +13,7 @@ export function Approach() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_60%_at_50%_50%,oklch(0.13_0.015_40/0.9),transparent_75%)]" />
       <div className="relative mx-auto max-w-3xl text-center">
         <Reveal>
-          <Eyebrow className="justify-center">{t.approach.eyebrow}</Eyebrow>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="mt-6 text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.05] tracking-[-0.02em] text-fg">
+          <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.05] tracking-[-0.02em] text-fg">
             {t.approach.thesisLines.map((line, index) => <span key={line} className="approach-line">{index > 0 && ' '}{line}</span>)}
           </h2>
         </Reveal>
