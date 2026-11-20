@@ -35,6 +35,27 @@
         content="Ingeniería y ciencia de IA que llega a producción. De la integración a la investigación aplicada." />
     <meta name="twitter:image" content="https://groway.studio/og-image.png" />
 
+    <!-- Google Analytics 4 — stream "Corporate Site" (G-N0EVM8BB5E).
+         Se carga solo fuera de localhost para no ensuciar los datos con dev;
+         en dev deja un stub de gtag para que trackEvent() sea un no-op. -->
+    <script>
+      (function () {
+        window.dataLayer = window.dataLayer || [];
+        var host = location.hostname;
+        if (host === 'localhost' || host === '127.0.0.1') {
+          window.gtag = function () {};
+          return;
+        }
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-N0EVM8BB5E';
+        document.head.appendChild(s);
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', 'G-N0EVM8BB5E');
+      })();
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">

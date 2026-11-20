@@ -5,6 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { SiriOrb, type OrbMode } from '@/components/chat/SiriOrb'
 import { streamChat } from '@/lib/chat'
 import { splitBubbles, typingDelayMs } from '@/lib/bubbles'
+import { trackEvent } from '@/lib/analytics'
 
 /**
  * LucIA como orbe flotante: un SiriOrb en la esquina que, al abrirse, despliega
@@ -25,6 +26,7 @@ const OPEN_EVENT = 'groway:chat-open'
  */
 // eslint-disable-next-line react-refresh/only-export-components -- tiny event helper, belongs with the widget
 export function openChat(prefill?: string) {
+  trackEvent('chat_opened', { prefilled: Boolean(prefill) })
   window.dispatchEvent(new CustomEvent(OPEN_EVENT, { detail: { prefill } }))
 }
 
@@ -45,6 +47,8 @@ export function ChatWidget() {
   const reduce = useReducedMotion()
   // Timers de la revelación secuencial de burbujas; se cancelan al desmontar.
   const revealTimers = useRef<ReturnType<typeof setTimeout>[]>([])
+  // Señal de intención: marcamos el primer mensaje enviado una sola vez.
+  const engaged = useRef(false)
 
   useEffect(
     () => () => {
@@ -105,6 +109,10 @@ export function ChatWidget() {
 
   const send = useCallback(
     async (text: string) => {
+      if (!engaged.current) {
+        engaged.current = true
+        trackEvent('chat_message_sent')
+      }
       setMsgs((m) => [...m, { from: 'user', text }, { from: 'bot', text: '' }])
       setBusy(true)
       setOrbMode('thinking')
