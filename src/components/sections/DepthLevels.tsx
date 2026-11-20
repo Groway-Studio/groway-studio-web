@@ -7,6 +7,9 @@ import { IntegrationCloud } from '@/components/visuals/IntegrationCloud'
 import { ResearchCloud } from '@/components/visuals/ResearchCloud'
 import { scrollToId } from '@/lib/scroll'
 
+// Keep the term cloud available while we review its visual role.
+const SHOW_RESEARCH_CLOUD = false
+
 export function DepthLevels() {
   const { t } = useLanguage()
   const rowsRef = useRef<HTMLDivElement>(null)
@@ -71,7 +74,7 @@ export function DepthLevels() {
                 <p className="font-mono text-xs tracking-[0.12em] text-accent-11">{level.num} / {level.name.toUpperCase()}</p>
                 <h3 id={`depth-${level.id}`} className="mt-3 scroll-mt-28 text-3xl font-semibold tracking-tight text-fg">{level.title}</h3>
                 <p className="mt-3 text-base leading-relaxed text-fg-muted">{level.desc}</p>
-                {level.id === 'innovate' && (
+                {SHOW_RESEARCH_CLOUD && level.id === 'innovate' && (
                   <div className="mt-8">
                     <ResearchCloud terms={t.depth.researchTerms} />
                     <p className="mt-3 text-center text-xs text-fg-muted">{t.depth.researchCaption}</p>
