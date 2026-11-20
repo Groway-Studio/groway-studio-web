@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { Section, Eyebrow } from '@/components/layout/Section'
 import { Reveal } from '@/components/ui/Reveal'
 import { IntegrationCloud } from '@/components/visuals/IntegrationCloud'
+import { DepthIcon } from '@/components/visuals/DepthIcon'
 import { ResearchCloud } from '@/components/visuals/ResearchCloud'
 import { scrollToId } from '@/lib/scroll'
 
@@ -71,6 +72,7 @@ export function DepthLevels() {
             <article data-depth-level={level.id} aria-labelledby={`depth-${level.id}`} className="depth-row relative isolate">
               <span aria-hidden="true" className="pointer-events-none absolute right-0 top-3 -z-10 select-none text-[clamp(7rem,13vw,11rem)] font-bold leading-none text-fg/[0.04]">{level.num}</span>
               <div className={`depth-copy ${index % 2 ? 'depth-copy-right' : ''}`}>
+                <DepthIcon kind={level.id} />
                 <p className="font-mono text-xs tracking-[0.12em] text-accent-11">{level.num} / {level.name.toUpperCase()}</p>
                 <h3 id={`depth-${level.id}`} className="mt-3 scroll-mt-28 text-3xl font-semibold tracking-tight text-fg">{level.title}</h3>
                 <p className="mt-3 text-base leading-relaxed text-fg-muted">{level.desc}</p>
