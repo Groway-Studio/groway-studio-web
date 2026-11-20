@@ -19,8 +19,8 @@ export const pt: Translations = {
     body: 'Cada negócio tem um desafio diferente. Às vezes, o próximo passo é potencializar o que já funciona. Em outros casos, é criar algo que ainda não existe. Combinamos engenharia e ciência para o seu negócio dar o próximo grande passo.',
   },
   depth: {
-    eyebrow: 'QUATRO NÍVEIS DE PROFUNDIDADE',
-    heading: 'Quatro formas de colocar a IA para trabalhar por você.',
+    eyebrow: 'TRÊS NÍVEIS DE PROFUNDIDADE',
+    heading: 'Três formas de colocar a IA para trabalhar por você.',
     intro: 'Com IA, sua equipe pode ganhar tempo, sua próxima ideia pode abrir um mercado e seus dados podem se tornar uma vantagem competitiva. Na Groway Studio, combinamos engenharia e ciência para tornar isso possível, com a abordagem que seu negócio precisa. E, se o caminho ainda não existe, exploramos com você.',
     integrationLabel: 'Agentes de IA conectados às suas ferramentas. Os aplicativos mudam para mostrar exemplos de integrações.',
     integrationCaption: 'Suas ferramentas favoritas. Seus próprios sistemas. Tudo conectado.',
@@ -46,8 +46,8 @@ export const pt: Translations = {
         ],
       },
       {
-        id: 'model', num: '03', name: 'Model', title: 'Treinar',
-        desc: 'Quando os modelos existentes não são suficientes, criamos o seu. Treinamos com seus dados e otimizamos para o seu negócio.',
+        id: 'innovate', num: '03', name: 'Innovate', title: 'Inovar',
+        desc: 'Quando a IA que existe não basta para o que você quer alcançar, vamos além. Modelos próprios, novas arquiteturas e pesquisa para transformar seus dados e ideias em uma vantagem para o seu negócio.',
         examples: [
           { title: 'Visão computacional', body: 'Analise imagens e vídeos para reconhecer objetos e detectar defeitos.' },
           { title: 'Modelos de linguagem', body: 'Compreenda documentos, perguntas e o vocabulário do seu setor.' },
@@ -56,11 +56,6 @@ export const pt: Translations = {
           { title: 'Modelos multimodais', body: 'Combine texto, imagens, vídeo e áudio para resolver problemas mais complexos.' },
           { title: 'Seu desafio é outro? Criamos o modelo que você precisa.' },
         ],
-      },
-      {
-        id: 'research', num: '04', name: 'Research', title: 'Pesquisar',
-        desc: 'Você tem um desafio que ninguém resolveu? Uma ideia que pode transformar seu setor? Pesquisamos o que é possível e como tornar isso realidade.',
-        examples: [],
       },
     ],
     researchCaption: 'E o que ainda está por descobrir.',

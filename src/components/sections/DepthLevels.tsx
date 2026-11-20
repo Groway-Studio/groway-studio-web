@@ -71,6 +71,12 @@ export function DepthLevels() {
                 <p className="font-mono text-xs tracking-[0.12em] text-accent-11">{level.num} / {level.name.toUpperCase()}</p>
                 <h3 id={`depth-${level.id}`} className="mt-3 scroll-mt-28 text-3xl font-semibold tracking-tight text-fg">{level.title}</h3>
                 <p className="mt-3 text-base leading-relaxed text-fg-muted">{level.desc}</p>
+                {level.id === 'innovate' && (
+                  <div className="mt-8">
+                    <ResearchCloud terms={t.depth.researchTerms} />
+                    <p className="mt-3 text-center text-xs text-fg-muted">{t.depth.researchCaption}</p>
+                  </div>
+                )}
                 {level.note && <p className="mt-5 text-sm leading-relaxed text-fg-muted">{level.note}</p>}
               </div>
               <div className={`depth-media ${index % 2 ? 'depth-media-left' : ''}`}>
@@ -78,11 +84,6 @@ export function DepthLevels() {
                   <>
                     <IntegrationCloud label={t.depth.integrationLabel} />
                     <p className="mx-auto mt-4 max-w-sm text-center text-xs leading-relaxed text-fg-muted">{t.depth.integrationCaption}</p>
-                  </>
-                ) : level.id === 'research' ? (
-                  <>
-                    <ResearchCloud terms={t.depth.researchTerms} />
-                    <p className="mt-3 text-center text-xs text-fg-muted">{t.depth.researchCaption}</p>
                   </>
                 ) : (
                   <ul className="space-y-5">

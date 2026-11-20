@@ -6,7 +6,7 @@ import { scrollToId } from '@/lib/scroll'
 export function Footer() {
   const { t } = useLanguage()
 
-  const services = ['Orchestrate', 'Engineer', 'Model', 'Research']
+  const services = t.depth.levels
   const company: Array<{ label: string; id: string }> = [
     { label: t.nav.approach, id: 'approach' },
     { label: t.nav.proof, id: 'proof' },
@@ -34,12 +34,12 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-2.5">
               {services.map((s) => (
-                <li key={s}>
+                <li key={s.id}>
                   <button
-                    onClick={() => scrollToId('depth')}
+                    onClick={() => scrollToId(`depth-${s.id}`)}
                     className="relative py-0.5 text-sm text-fg-muted transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-accent-11/70 after:transition-transform after:duration-200 after:ease-out hover:text-accent-11 hover:after:scale-x-100"
                   >
-                    {s}
+                    {s.title}
                   </button>
                 </li>
               ))}

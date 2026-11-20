@@ -53,12 +53,6 @@ export function Hero() {
               {t.hero.ctaPrimary}
               <ArrowRight weight="bold" className="transition-transform duration-200 ease-out group-hover:translate-x-1" />
             </button>
-            <button
-              onClick={() => scrollToId('approach')}
-              className="cta cta-secondary inline-flex items-center justify-center gap-2 rounded-lg border border-border px-7 py-4 text-base font-medium text-fg transition-colors duration-200 hover:border-accent-9/60 hover:bg-surface/40 hover:text-accent-11"
-            >
-              {t.hero.ctaSecondary}
-            </button>
           </div>
         </div>
       </div>

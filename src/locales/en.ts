@@ -28,8 +28,8 @@ export const en: Translations = {
   },
   depth: {
     intro: "With AI, your team can save time, your next idea can open a market, and your data can become a competitive advantage. At Groway Studio, we combine engineering and science to make this possible, with the approach your business needs. And if the path does not exist yet, we explore it with you.",
-    "eyebrow": "FOUR LEVELS OF DEPTH",
-    "heading": "Four ways to put AI to work for you.",
+    "eyebrow": 'THREE LEVELS OF DEPTH',
+    "heading": 'Three ways to put AI to work for you.',
     "integrationLabel": "AI agents connected to your tools. The apps change to show examples of integrations.",
     "integrationCaption": "Your favorite tools. Your own systems. All connected.",
     "closingHeading": "Tell us what you have in mind.",
@@ -74,11 +74,11 @@ export const en: Translations = {
         "note": "Your own product, built around your process, with AI designed in from the start."
       },
       {
-        "id": "model",
+        "id": "innovate",
         "num": "03",
-        "name": "Model",
-        "title": "Train",
-        "desc": "When existing models aren’t enough, we create yours. Trained on your data. Optimized for your business.",
+        "name": "Innovate",
+        "title": "Innovate",
+        "desc": "When existing AI falls short of what you want to achieve, we go further. Custom models, new architectures and research to turn your data and ideas into an advantage for your business.",
         "examples": [
           {
             "title": "Computer vision",
@@ -104,14 +104,6 @@ export const en: Translations = {
             "title": "A different challenge? We’ll build the model you need."
           }
         ]
-      },
-      {
-        "id": "research",
-        "num": "04",
-        "name": "Research",
-        "title": "Research",
-        "desc": "Facing a challenge no one has solved? An idea that could change your industry? We research what’s possible and how to make it happen.",
-        "examples": []
       }
     ],
     "researchCaption": "And what’s still waiting to be discovered.",

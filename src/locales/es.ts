@@ -27,8 +27,8 @@ export const es: Translations = {
     body: 'Cada negocio tiene un reto distinto. A veces, el salto está en potenciar lo que ya funciona. Otras, en crear algo que todavía no existe. Combinamos ingeniería y ciencia para que tu negocio dé su próximo gran paso.',
   },
   depth: {
-    "eyebrow": "CUATRO NIVELES DE PROFUNDIDAD",
-    "heading": 'Cuatro formas de poner la IA a trabajar para ti.',
+    "eyebrow": 'TRES NIVELES DE PROFUNDIDAD',
+    "heading": 'Tres formas de poner la IA a trabajar para ti.',
     intro: 'Con IA, tu equipo puede ganar tiempo, tu próxima idea puede abrir un mercado y tus datos pueden convertirse en una ventaja propia. En Groway Studio combinamos ingeniería y ciencia para hacer esto posible, con el enfoque que tu negocio necesita. Y si el camino aún no existe, lo exploramos contigo.',
     "integrationLabel": "Agentes de IA conectados a tus herramientas. Las apps van cambiando para mostrar ejemplos de integraciones.",
     "integrationCaption": "Tus herramientas favoritas. Tus propios sistemas. Todo conectado.",
@@ -74,11 +74,11 @@ export const es: Translations = {
         "note": "Un producto propio que resuelve tu proceso, con IA integrada desde el diseño."
       },
       {
-        "id": "model",
+        "id": "innovate",
         "num": "03",
-        "name": "Model",
-        "title": "Entrenar",
-        "desc": "Cuando los modelos existentes no son suficientes, creamos el tuyo. Lo entrenamos con tus datos y lo optimizamos para tu negocio.",
+        "name": "Innovate",
+        "title": "Innovar",
+        "desc": "Cuando la IA que existe no alcanza para lo que quieres lograr, vamos más allá. Modelos propios, nuevas arquitecturas e investigación para convertir tus datos e ideas en una ventaja para tu negocio.",
         "examples": [
           {
             "title": "Visión por computador",
@@ -104,14 +104,6 @@ export const es: Translations = {
             "title": "¿Tu reto es otro? Creamos el modelo que necesitas."
           }
         ]
-      },
-      {
-        "id": "research",
-        "num": "04",
-        "name": "Research",
-        "title": "Investigar",
-        "desc": "¿Tienes un reto que nadie ha resuelto? ¿Una idea que podría cambiar tu industria? Investigamos qué es posible y cómo hacerlo realidad.",
-        "examples": []
       }
     ],
     "researchCaption": "Y lo que aún está por descubrir.",
