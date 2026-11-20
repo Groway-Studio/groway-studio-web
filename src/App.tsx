@@ -4,7 +4,6 @@ import { Hero } from '@/components/sections/Hero'
 import { Approach } from '@/components/sections/Approach'
 import { DepthLevels } from '@/components/sections/DepthLevels'
 import { Method } from '@/components/sections/Method'
-import { Proof } from '@/components/sections/Proof'
 import { Startups } from '@/components/sections/Startups'
 import { Academy } from '@/components/sections/Academy'
 import { Contact } from '@/components/sections/Contact'
@@ -25,7 +24,6 @@ function App() {
         <Approach />
         <DepthLevels />
         <Method />
-        <Proof />
         <Startups />
         <Academy />
         <Contact />

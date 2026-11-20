@@ -6,7 +6,7 @@ import { scrollToId } from '@/lib/scroll'
 import { cn } from '@/lib/utils'
 import type { Language } from '@/locales/types'
 
-const NAV_IDS = ['approach', 'depth', 'method', 'proof', 'startups', 'academy'] as const
+const NAV_IDS = ['approach', 'depth', 'method', 'startups', 'academy'] as const
 
 function LangToggle() {
   const { language, setLanguage } = useLanguage()
@@ -51,7 +51,6 @@ export function Navigation() {
     approach: t.nav.approach,
     depth: t.nav.depth,
     method: t.nav.method,
-    proof: t.nav.proof,
     startups: t.nav.startups,
     academy: t.nav.academy,
   }

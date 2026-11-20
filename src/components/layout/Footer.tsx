@@ -9,7 +9,6 @@ export function Footer() {
   const services = t.depth.levels
   const company: Array<{ label: string; id: string }> = [
     { label: t.nav.approach, id: 'approach' },
-    { label: t.nav.proof, id: 'proof' },
     { label: t.nav.startups, id: 'startups' },
     { label: t.nav.academy, id: 'academy' },
   ]
