@@ -121,7 +121,7 @@ export const pt: Translations = {
     launcher: 'Vamos conversar', title: 'LucIA',
     prefillMvp: 'Olá! Tenho interesse no pacote MVP para startups.',
     prefillAcademy: 'Olá! Tenho interesse na Groway Academy. Quero aprender sobre…',
-    greeting: 'Olá 👋 Sou a LucIA, da Groway. Me conta: o que você quer resolver com IA?',
+    greeting: "Olá! Sou a LucIA, da Groway 👋 O que você tem em mente? Vou adorar ajudar a dar forma à sua ideia.",
     error: 'Ops, a conexão caiu por aqui. Escreva diretamente para hola@groway.studio.',
     placeholder: 'Escreva sua mensagem…', send: 'Enviar', close: 'Fechar chat', typing: 'LucIA está digitando…',
   },

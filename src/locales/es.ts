@@ -243,7 +243,7 @@ export const es: Translations = {
     title: 'LucIA',
     prefillMvp: '¡Hola! Estoy interesado en el paquete MVP para startups.',
     prefillAcademy: '¡Hola! Me interesa Groway Academy. Quiero capacitarme en…',
-    greeting: 'Hola 👋 Soy LucIA, de Groway. Cuéntame: ¿qué quieres resolver con IA?',
+    greeting: "¡Hola! Soy LucIA, de Groway 👋 ¿Qué tienes en mente? Me encantará ayudarte a darle forma.",
     error: 'Ups, algo se cortó de mi lado. Escríbenos directo a hola@groway.studio.',
     placeholder: 'Escribe tu mensaje…',
     send: 'Enviar',

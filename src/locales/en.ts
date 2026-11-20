@@ -230,7 +230,7 @@ export const en: Translations = {
     title: 'LucIA',
     prefillMvp: "Hi! I'm interested in the startup MVP package.",
     prefillAcademy: "Hi! I'm interested in Groway Academy. I'd like to train in…",
-    greeting: "Hi 👋 I'm LucIA, from Groway. Tell me: what do you want to solve with AI?",
+    greeting: "Hi! I’m LucIA, from Groway 👋 What do you have in mind? I’d love to help you shape it.",
     error: 'Oops, something broke on my end. Email us directly at hola@groway.studio.',
     placeholder: 'Type your message…',
     send: 'Send',
