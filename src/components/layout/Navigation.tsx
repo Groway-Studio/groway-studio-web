@@ -44,6 +44,10 @@ export function Navigation() {
 
   const go = (id: string) => {
     setMenuOpen(false)
+    if (id === 'startups') {
+      window.location.assign('/startups/')
+      return
+    }
     scrollToId(id)
   }
 

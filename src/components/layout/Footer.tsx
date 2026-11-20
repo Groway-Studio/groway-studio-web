@@ -53,7 +53,7 @@ export function Footer() {
               {company.map((c) => (
                 <li key={c.id}>
                   <button
-                    onClick={() => scrollToId(c.id)}
+                    onClick={() => c.id === 'startups' ? window.location.assign('/startups/') : scrollToId(c.id)}
                     className="relative py-0.5 text-sm text-fg-muted transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-accent-11/70 after:transition-transform after:duration-200 after:ease-out hover:text-accent-11 hover:after:scale-x-100"
                   >
                     {c.label}
