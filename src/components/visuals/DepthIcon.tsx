@@ -22,20 +22,24 @@ export function DepthIcon({ kind }: { kind: string }) {
           </>
         ) : kind === 'engineer' ? (
           <>
-            <path d="m16 76 24-14 24 14v28l-24 14-24-14V76Z" fill="#F4EADF" stroke="#59483D" />
-            <path d="m16 76 24 14 24-14M40 90v28" stroke="#59483D" />
-            <path d="m64 76 24-14 24 14v28l-24 14-24-14" stroke="#59483D" />
-            <path d="m64 76 24 14 24-14M88 90v28" stroke="#59483D" />
-            <path d="m40 34 24-14 24 14v28L64 76 40 62V34Z" fill="#FFF7EB" stroke={accent} />
-            <path d="m40 34 24 14 24-14M64 48v28" stroke={accent} />
+            <path d="M68 106H29c-9 0-15-6-15-15V34c0-9 6-15 15-15h66c9 0 15 6 15 15v40" stroke="#59483D" />
+            <path d="M16 38h92" stroke="#59483D" />
+            <g fill="#59483D" stroke="none">
+              <circle cx="28" cy="28" r="2.5" />
+              <circle cx="39" cy="28" r="2.5" />
+              <circle cx="50" cy="28" r="2.5" />
+            </g>
+            <path d="m45 55-13 12 13 12m31-24 13 12-13 12M66 50 54 85" stroke={accent} />
+            <path d="m83 86 17-10 17 10v22l-17 10-17-10V86Z" fill="#FFF7EB" stroke={accent} />
+            <path d="m83 86 17 10 17-10m-17 10v22" stroke={accent} />
           </>
         ) : (
           <>
-            <ellipse cx="62" cy="70" rx="49" ry="20" transform="rotate(-32 62 70)" stroke="#59483D" />
-            <ellipse cx="62" cy="70" rx="49" ry="20" transform="rotate(32 62 70)" stroke={accent} />
-            <path d="M62 46c2 16 8 22 23 24-15 2-21 8-23 24-2-16-8-22-23-24 15-2 21-8 23-24Z" fill="#FFF7EB" stroke={accent} strokeWidth="4" />
-            <circle cx="101" cy="40" r="6" fill={accent} stroke="#FFF7EB" strokeWidth="3" />
-            <path d="M36 15v12M30 21h12" stroke={accent} strokeWidth="4" />
+            <path d="M45 29v22c0 4-1 7-3 10L17 100c-5 9 1 18 11 18h62c10 0 16-9 11-18L76 61c-2-3-3-6-3-10V29M40 29h38" stroke="#59483D" />
+            <path d="m29 99 9-14c8-3 13 6 24 2 13-5 19-9 24 0l8 14c2 4 0 7-5 7H33c-5 0-6-5-4-9Z" fill={accent} stroke="none" />
+            <circle cx="53" cy="75" r="5" fill={accent} stroke="none" />
+            <circle cx="64" cy="63" r="3.5" fill={accent} stroke="none" />
+            <path d="M101 9c2 15 6 19 19 21-13 2-17 6-19 21-2-15-6-19-19-21 13-2 17-6 19-21Z" fill={accent} stroke={accent} strokeWidth="2" />
           </>
         )}
       </g>
