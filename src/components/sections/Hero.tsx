@@ -33,7 +33,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-[75rem] px-6 pt-24 pb-16 lg:px-8">
         <div className="max-w-3xl">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent-11">
+          <p className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-accent-11">
             {t.hero.overline}
           </p>
 
