@@ -30,7 +30,7 @@ export function Method() {
               <span className="font-mono text-sm font-medium text-accent-11">{String(i + 1).padStart(2, '0')}</span>
               <span className="method-step-icon"><Icon size={32} weight="regular" aria-hidden="true" /></span>
               <h3 className="mt-4 text-xl font-semibold tracking-tight text-fg">{step.title}</h3>
-              <p className="mt-3 text-base leading-relaxed text-fg-muted">{step.body}</p>
+              <p className="mt-3 text-lg leading-relaxed text-fg-muted">{step.body}</p>
               {i < t.method.steps.length - 1 && <span className="method-connector" aria-hidden="true"><ArrowRight size={19} weight="bold" /></span>}
             </Reveal>
           )

@@ -65,7 +65,7 @@ export function Startups() {
                     className="mt-0.5 shrink-0 text-accent-9"
                     aria-hidden="true"
                   />
-                  <span className="text-base leading-relaxed text-fg-muted">{item}</span>
+                  <span className="text-lg leading-relaxed text-fg-muted">{item}</span>
                 </li>
               ))}
             </ul>

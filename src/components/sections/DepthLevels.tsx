@@ -50,7 +50,7 @@ export function DepthLevels() {
       </Reveal>
       <div className="mt-12 grid gap-8 lg:grid-cols-[8rem_minmax(0,1fr)]">
         <nav aria-label={t.depth.eyebrow} className="hidden lg:block">
-          <ol className="sticky top-28 space-y-5 pt-10">
+          <ol className="sticky top-28 space-y-7 pt-10">
             {t.depth.levels.map(level => (
               <li key={level.id}>
                 <a
@@ -75,29 +75,29 @@ export function DepthLevels() {
                 <DepthIcon kind={level.id} />
                 <p className="font-mono text-xs tracking-[0.12em] text-accent-11">{level.num} / {level.name.toUpperCase()}</p>
                 <h3 id={`depth-${level.id}`} className="mt-3 scroll-mt-28 text-3xl font-semibold tracking-tight text-fg">{level.title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-fg-muted">{level.desc}</p>
+                <p className="mt-3 text-lg leading-relaxed text-fg-muted">{level.desc}</p>
                 {SHOW_RESEARCH_CLOUD && level.id === 'innovate' && (
                   <div className="mt-8">
                     <ResearchCloud terms={t.depth.researchTerms} />
                     <p className="mt-3 text-center text-xs text-fg-muted">{t.depth.researchCaption}</p>
                   </div>
                 )}
-                {level.note && <p className="mt-5 text-sm leading-relaxed text-fg-muted">{level.note}</p>}
+                {level.note && <p className="mt-5 text-lg leading-relaxed text-fg-muted">{level.note}</p>}
               </div>
               <div className={`depth-media ${index % 2 ? 'depth-media-left' : ''}`}>
                 {level.id === 'orchestrate' ? (
                   <>
                     <IntegrationCloud label={t.depth.integrationLabel} />
-                    <p className="mx-auto mt-4 max-w-sm text-center text-xs leading-relaxed text-fg-muted">{t.depth.integrationCaption}</p>
+                    <p className="mx-auto mt-4 max-w-md text-center text-base leading-relaxed text-fg-muted">{t.depth.integrationCaption}</p>
                   </>
                 ) : (
-                  <ul className="space-y-5">
+                  <ul className="space-y-7">
                     {level.examples.map(example => (
                       <li key={example.title} className="flex gap-3">
                         <ArrowRight aria-hidden="true" size={16} className="mt-1 shrink-0 text-accent-11" />
                         <div>
-                          <p className="text-sm font-medium text-fg">{example.title}</p>
-                          {example.body && <p className="mt-1 text-sm leading-relaxed text-fg-muted">{example.body}</p>}
+                          <p className="text-lg font-semibold text-fg">{example.title}</p>
+                          {example.body && <p className="mt-1 text-lg leading-relaxed text-fg-muted">{example.body}</p>}
                         </div>
                       </li>
                     ))}
@@ -112,7 +112,7 @@ export function DepthLevels() {
       <Reveal className="flex flex-wrap items-center justify-between gap-6 border-t border-hairline pt-8">
         <div>
           <p className="font-medium text-fg">{t.depth.closingHeading}</p>
-          <p className="mt-2 text-sm text-fg-muted">{t.depth.closingBody}</p>
+          <p className="mt-2 text-lg leading-relaxed text-fg-muted">{t.depth.closingBody}</p>
         </div>
         <button type="button" onClick={() => scrollToId('contact')} className="cta cta-secondary inline-flex items-center gap-2 rounded-lg border border-accent-9/40 bg-surface px-5 py-3 text-sm font-semibold text-accent-11 transition-colors hover:border-accent-9 hover:bg-surface-2">
           {t.depth.cta}<ArrowRight aria-hidden="true" weight="bold" />

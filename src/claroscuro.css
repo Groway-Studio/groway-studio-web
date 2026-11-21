@@ -245,3 +245,14 @@
   .method-step p { clear:both; }
   .method-connector { top:auto; right:auto; left:calc(50% - 14px); bottom:-37px; transform:rotate(90deg); }
 }
+
+/* Reading scale: body copy stays generous; the layout grows with its content. */
+.groway-site .depth-row { padding-block:64px; gap:clamp(40px,5vw,72px); }
+.groway-site .depth-copy { max-width:46ch; }
+.groway-site .depth-media { max-width:500px; }
+.groway-site #depth nav a { font-size:14px; }
+.groway-site #depth .depth-copy h3 { font-size:clamp(2rem,3vw,2.5rem); }
+.groway-site .method-step h3 { font-size:24px; }
+@media (max-width:767px) {
+  .groway-site .depth-row { padding-block:44px; gap:32px; }
+}

@@ -44,7 +44,7 @@ export function Academy() {
             <Reveal key={track.title} delay={0.1 + i * 0.05}>
               <div className="rounded-2xl border border-border bg-surface/50 p-7 transition-colors duration-300 hover:border-accent-9/40 hover:bg-surface">
                 <h3 className="text-lg font-semibold text-fg">{track.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-fg-muted">{track.desc}</p>
+                <p className="mt-2 text-lg leading-relaxed text-fg-muted">{track.desc}</p>
               </div>
             </Reveal>
           ))}
