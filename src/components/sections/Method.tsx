@@ -18,7 +18,7 @@ export function Method() {
       <div className="relative max-w-2xl">
         <Reveal><Eyebrow className="method-eyebrow">{t.method.eyebrow}</Eyebrow></Reveal>
         <Reveal delay={0.05}>
-          <h2 className="mt-5 text-[clamp(2.2rem,5vw,3.75rem)] font-bold leading-[1.05] tracking-[-0.03em] text-accent-11">{t.method.name}</h2>
+          <h2 className="mt-5 text-[clamp(2rem,4vw,3.25rem)] font-bold leading-[1.05] tracking-[-0.03em] text-accent-11">{t.method.name}</h2>
         </Reveal>
         <Reveal delay={0.1}><p className="mt-4 text-lg text-fg-muted">{t.method.heading}</p></Reveal>
       </div>
@@ -30,7 +30,7 @@ export function Method() {
               <span className="font-mono text-sm font-medium text-accent-11">{String(i + 1).padStart(2, '0')}</span>
               <span className="method-step-icon"><Icon size={32} weight="regular" aria-hidden="true" /></span>
               <h3 className="mt-4 text-xl font-semibold tracking-tight text-fg">{step.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-fg-muted">{step.body}</p>
+              <p className="mt-3 text-base leading-relaxed text-fg-muted">{step.body}</p>
               {i < t.method.steps.length - 1 && <span className="method-connector" aria-hidden="true"><ArrowRight size={19} weight="bold" /></span>}
             </Reveal>
           )

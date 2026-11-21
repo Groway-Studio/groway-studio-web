@@ -233,7 +233,7 @@
 .method-step:first-child { border-top-color:#dc8b52; border-left-color:#dc8b52; }
 .method-step-icon { display:flex; align-items:center; justify-content:center; width:56px; height:56px; margin-top:18px; border-radius:15px; color:#59402d; background:linear-gradient(135deg,#f9e5d1,#f6d8bb); }
 .method-connector { position:absolute; z-index:2; top:142px; right:-39px; display:flex; align-items:center; justify-content:center; width:28px; height:28px; border:1px solid #efc39f; border-radius:50%; background:#fffcf8; color:#c65a22; }
-@media (max-width:1023px) and (min-width:640px) {
+@media (max-width:1199px) and (min-width:640px) {
   .method-steps { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .method-step:nth-child(2) .method-connector { display:none; }
 }
